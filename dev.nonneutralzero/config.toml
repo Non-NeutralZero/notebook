@@ -1,0 +1,15 @@
+baseURL = 'http://0.0.0.0:1313'
+languageCode = 'en-us'
+title = 'Docs - NonNeutralZero'
+
+[menu]
+# [[menu.before]]
+[[menu.after]]
+  name = "Github"
+  url = "https://github.com/Non-NeutralZero"
+  weight = 10
+
+[[menu.after]]
+  name = "NonNeutralZero"
+  url = "https://www.nonneutralzero.com/"
+  weight = 20

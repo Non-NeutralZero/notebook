@@ -1,3 +1,15 @@
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
-title = 'My New Hugo Site'
+title = 'Docs - NonNeutralZero'
+
+[menu]
+# [[menu.before]]
+[[menu.after]]
+  name = "Github"
+  url = "https://github.com/Non-NeutralZero"
+  weight = 10
+
+[[menu.after]]
+  name = "NonNeutralZero"
+  url = "https://nonneutralzero.com"
+  weight = 20

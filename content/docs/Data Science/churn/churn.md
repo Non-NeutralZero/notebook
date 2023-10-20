@@ -1,3 +1,6 @@
+---
+bookToc: false
+---
 version du 25-12-2018
 
 ## Gestion de l'attrition ou Churn management
@@ -12,9 +15,6 @@ réduction et à la maximisation de la valeur de la relation client:
 - Affiner nos ciblages
 - Optimiser nos efforts de rétention
 
-![churn-illustration](image.png)
-
-![Alt text](image-1.png)
 
 Le churn est un risque normal et fréquent qui interrompt la relation client/banque. Ce risque pourrait
 apparaître pendant différents stades du parcours client et requiert, par conséquent, des actions de

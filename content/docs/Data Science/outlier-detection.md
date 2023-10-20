@@ -1,3 +1,7 @@
+---
+bookToc: true
+---
+
 ## Types of outliers
 ### With regards to the distribution
 - Univariate: can be found when looking at a distribution of values in a single feature space.

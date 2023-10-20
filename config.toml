@@ -13,3 +13,11 @@ title = 'Docs - NonNeutralZero'
   name = "NonNeutralZero"
   url = "https://nonneutralzero.com"
   weight = 20
+
+[params]
+  # (Optional, default light) Sets color theme: light, dark or auto.
+  # Theme 'auto' switches between dark and light modes based on browser/os preferences
+  BookTheme = 'light'
+
+  #BookLogo = 'favicon-elephant-192x192.png'
+

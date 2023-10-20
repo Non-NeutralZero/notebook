@@ -32,6 +32,7 @@ resources/_gen
 
 # Temp files
 *~
+*~
 *#
 *.swp
 *.bak
@@ -61,3 +62,4 @@ Thumbs.db
 
 # vscode workspace settings
 .vscode
+.dropbox

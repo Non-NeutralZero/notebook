@@ -6,14 +6,13 @@ tags = [
     "templates",
     "development",
 ]
-date = "2014-04-02"
+date = "2019-07-12"
 categories = [
     "Development",
     "Tutorials",
 ]
 menu = "main"
 parent = "tutorials"
-weight = 10
 +++
 
 ## Comment documenter ?

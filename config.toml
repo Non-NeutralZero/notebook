@@ -20,3 +20,4 @@ theme = 'hugo-book'
   BookTheme = 'light'
   BookRepo = 'https://github.com//Non-NeutralZero/docs'
   BookComments = false
+  BookSection = '*'

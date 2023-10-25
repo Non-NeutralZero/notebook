@@ -19,5 +19,4 @@ theme = 'hugo-book'
 [params]
   BookTheme = 'light'
   BookRepo = 'https://github.com//Non-NeutralZero/docs'
-  BookComments = false
   BookSection = 'docs'

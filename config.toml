@@ -1,6 +1,8 @@
 baseURL = 'http://example.org/'
 languageCode = 'en-us'
 title = 'Docs - NonNeutralZero'
+theme = 'hugo-book'
+
 
 [menu]
 # [[menu.before]]

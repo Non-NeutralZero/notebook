@@ -1,4 +1,4 @@
-baseURL = 'https://non-neutralzero.github.io/nnz-docs/'
+baseURL = 'https://non-neutralzero.github.io/docs/'
 languageCode = 'en-us'
 title = 'Docs - NonNeutralZero'
 theme = 'hugo-book'

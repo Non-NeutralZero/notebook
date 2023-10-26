@@ -3,7 +3,7 @@ title = "Run plotly in JupyterLab"
 description = ""
 tags = [
     "jupyter",
-    "development",
+    "python-librairies",
 ]
 date = "2023-10-24"
 categories = [

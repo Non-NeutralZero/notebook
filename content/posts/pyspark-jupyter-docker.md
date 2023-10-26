@@ -1,6 +1,6 @@
 +++
 title = "Running PySpark & Jupyter With Docker"
-description = ""
+description = "How to set up a development environment around pyspark and jupyter using docker"
 tags = [
     "spark",
     "docker",
@@ -14,10 +14,6 @@ categories = [
 menu = "main"
 parent = "tutorials"
 +++
-
-# Running PySpark & Jupyter With Docker
-How to set up a development environment around pyspark and jupyter using docker
-
 
 Thanks to the Jupyter community, it's now much easier to run PySpark on Jupyter using Docker.
 There are two ways you can do this : 1. the "direct" way and 2. the customized way.

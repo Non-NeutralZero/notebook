@@ -3,6 +3,10 @@ languageCode = 'en-us'
 title = 'Docs - NonNeutralZero'
 theme = 'hugo-book'
 
+# Syntax highlighting
+pygmentsCodeFences = true 
+pygmentsUseClasses = false  
+pygmentsStyle = "nord"  
 
 [menu]
 # [[menu.before]]
@@ -20,3 +24,8 @@ theme = 'hugo-book'
   BookTheme = 'light'
   BookRepo = 'https://github.com//Non-NeutralZero/docs'
   BookSection = 'docs'
+  BookCommitPath = 'commit'
+
+[params.extra]
+copyright = "© 2023. NonNeutralZero."
+poweredby = true

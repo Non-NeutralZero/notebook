@@ -1,5 +1,5 @@
 +++
-title = ""
+title = "VS Code Configuration & Set-up"
 description = "VS Code Configuration & Set-up"
 tags = [
     "git",

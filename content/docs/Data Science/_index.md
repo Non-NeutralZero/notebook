@@ -1,6 +1,7 @@
 ---
 bookCollapseSection: true
-weight: 3
+bookFlatSection: false
+weight: 1
 ---
 
 # Data Science

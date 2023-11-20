@@ -20,6 +20,11 @@ pygmentsStyle = "nord"
   url = "https://nonneutralzero.com"
   weight = 20
 
+[[menu.after]]
+  name = "Linktr"
+  url = "https://linktr.ee/nonneutralzero"
+  weight = 30
+
 [params]
   BookTheme = 'light'
   BookRepo = 'https://github.com//Non-NeutralZero/docs'

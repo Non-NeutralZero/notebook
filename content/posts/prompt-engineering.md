@@ -3,6 +3,7 @@ title = "Prompt Engineering"
 description = ""
 tags = [
     "llm",
+    "langchain",
     "development",
 ]
 date = "2023-09-12"

@@ -15,6 +15,6 @@ menu = "main"
 parent = "tutorials"
 +++
 
-## Prompt Engineering
+## RAG Architecture
 
 {{< figure src="/docs/images/posts/prompt-engineering/rag-architecture.jpg">}}

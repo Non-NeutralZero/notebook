@@ -1,5 +1,5 @@
 +++
-title = "HiveQL"
+title = "Hive"
 description = ""
 tags = [
     "sql",
@@ -22,3 +22,9 @@ parent = "tutorials"
 -- set it back to column once it's done
 set hive.support.quoted.identifiers = none;
 ```
+## HIVE 3
+- BI Code typically use `db.table` - needs to change to `db`.`table`
+- Default path : /warehouse/tablespace/external/hive/default.db/test_table
+
+## Resources & Useful Links
+[ACID + HIVE](https://cwiki.apache.org/confluence/display/Hive/Hive+Transactions)

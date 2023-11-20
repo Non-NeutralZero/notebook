@@ -5,6 +5,10 @@
 
 ![Decision tree example](https://upload.wikimedia.org/wikipedia/commons/f/ff/Decision_tree_model.png)
 
+<p align="center">
+  <img width="100" height="100" src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Decision_tree_model.png">
+</p>
+
 *   The classification can be categorical or numerical
 *   The first node is called the **Root node**, the nodes in the middle are called **internal nodes**, and the results are called **leaf nodes**
 

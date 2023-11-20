@@ -39,6 +39,17 @@ Host machine_after_tunnel
     ProxyJump tunnel_machine
 ```
 
+# PC Configuration
+Authorize your local machine to connect to remote machine.
+
+```powershell
+$USER_AT_HOST="your-user-name-on-host@hostname"
+$PUBKEYPATH="$HOME\.ssh\id_ed25519.pub"
+
+$pubKey=(Get-Content "$PUBKEYPATH" | Out-String); ssh "$USER_AT_HOST" "mkdir -p ~/.ssh && chmod 700 ~/.ssh && echo '${pubKey}' >> ~/.ssh/authorized_keys && chmod 600 ~/.ssh/authorized_keys"
+```
+Verify that the ***authorized_keys*** file in the ***.ssh*** folder for your remote user on the SSH host is owned by you and no other user has permission to access it.
+
 # Uses
 ## Extensions
 - Remote Explorer

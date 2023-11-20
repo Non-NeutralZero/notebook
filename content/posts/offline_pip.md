@@ -3,7 +3,7 @@ title = "Install python packages offline"
 description = "How to Install Python packages offline"
 tags = [
     "pip",
-    "^python",
+    "python",
 ]
 date = "2023-06-20"
 categories = [

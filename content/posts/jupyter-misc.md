@@ -34,3 +34,7 @@ comment = "Training time for getnumpartition:"
 with open('output.txt', 'a') as f:
     f.write(f"{comment} {your_float_variable}\n")
 ```
+
+
+## Related Entries
+- [Run plotly in JupyterLab](https://non-neutralzero.github.io/docs/posts/dash-jupyterlab/)

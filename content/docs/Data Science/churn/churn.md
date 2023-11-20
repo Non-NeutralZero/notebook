@@ -21,4 +21,4 @@ apparaître pendant différents stades du parcours client et requiert, par cons�
 retention adaptées à sa nature, ajustées au stade de la relation et personnalisés selon le segment du
 client.
 
-![Alt text](/image-2.png)
+![Alt text](/images/docs/datascience/churn/image-2.png)

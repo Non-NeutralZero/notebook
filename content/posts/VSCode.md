@@ -17,7 +17,7 @@ parent = "tutorials"
 
 # Configuration
 ## Remote SSH 
-```shell
+```powershell
 Host machine
     Hostname machine.com
     User user_name
@@ -25,7 +25,7 @@ Host machine
 ```
 
 ## Remote SSH - SSH Tunnel
-```shell
+```powershell
 Host tunnel_machine
     Hostname machine.com
     User user_name

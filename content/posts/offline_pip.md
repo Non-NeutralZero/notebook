@@ -5,7 +5,7 @@ tags = [
     "pip",
     "^python",
 ]
-date = "2023-06-08"
+date = "2023-06-20"
 categories = [
     "Development",
     "Tutorials",

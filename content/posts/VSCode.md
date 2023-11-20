@@ -15,17 +15,17 @@ menu = "main"
 parent = "tutorials"
 +++
 
-# Configuration
-## Remote SSH 
-```powershell
+## Configuration
+### Remote SSH 
+```shell
 Host machine
     Hostname machine.com
     User user_name
     IdentityFile path/to/ssh/key
 ```
 
-## Remote SSH - SSH Tunnel
-```powershell
+### Remote SSH - SSH Tunnel
+```shell
 Host tunnel_machine
     Hostname machine.com
     User user_name
@@ -39,8 +39,8 @@ Host machine_after_tunnel
     ProxyJump tunnel_machine
 ```
 
-# PC Configuration
-Authorize your local machine to connect to remote machine.
+## PC Configuration
+Authorize your windows local machine to connect to remote machine.
 
 ```powershell
 $USER_AT_HOST="your-user-name-on-host@hostname"
@@ -50,7 +50,7 @@ $pubKey=(Get-Content "$PUBKEYPATH" | Out-String); ssh "$USER_AT_HOST" "mkdir -p 
 ```
 Verify that the ***authorized_keys*** file in the ***.ssh*** folder for your remote user on the SSH host is owned by you and no other user has permission to access it.
 
-# Uses
-## Extensions
+## Uses
+### Extensions
 - Remote Explorer
 - Docker

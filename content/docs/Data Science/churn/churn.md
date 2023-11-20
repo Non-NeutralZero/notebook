@@ -26,7 +26,21 @@ client.
 ![Screenshot](/docs/data-science/image-2.png)
 
 {{< figure src="/docs/data-science/churn/image-2.png" >}}
+/docs/docs/data-science/churn/
 
-![Screenshot](content/docs/Data Science/churn/image-2.png)
 
+test
+{{< figure src="/docs/content/docs/Data Science/churn/image-2.png" >}}
+test2
+{{< figure src="/docs/docs/data-science/churn/churn/image-2.png" >}}
+test21
+{{< figure src="/docs/docs/data-science/churn/image-2.png" >}}
+test22
+{{< figure src="/docs/data-science/churn/churn/image-2.png" >}}
+test23
+{{< figure src="/docs/data-science/churn/image-2.png" >}}
+
+test3
+{{< figure src="/docs/data-science/churn/image-2.png" >}}
+test4
 {{< figure src="/docs/images/docs/datascience/churn/image-2.png" >}}

@@ -25,4 +25,5 @@ CTLnames_show_etal       = "2" }
 ```
 
 ### Cheat-sheets
-- [Overleaf BibTex](https://www.overleaf.com/learn/latex/Bibliography_management_with_bibtex)
+- [Overleaf, Bibliography management with bibtex](https://www.overleaf.com/learn/latex/Bibliography_management_with_bibtex)
+- [Sébastien Merkel, Reference sheet for natbib usage](http://merkel.texture.rocks/Latex/natbib.php)

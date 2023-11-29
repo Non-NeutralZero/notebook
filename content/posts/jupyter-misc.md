@@ -1,5 +1,5 @@
 +++
-title = "Jupyter Utils"
+title = "Jupyter"
 description = "Misc Setups and Configurations for Jupyter"
 tags = [
     "jupyter",
@@ -7,8 +7,7 @@ tags = [
 ]
 date = "2023-11-20"
 categories = [
-    "Development",
-    "Tutorials",
+    "Utils",
 ]
 menu = "main"
 parent = "tutorials"

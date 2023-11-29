@@ -4,11 +4,10 @@ description = "VS Code Configuration & Set-up"
 tags = [
     "git",
     "ssh",
-    "development",
-]
+    ]
 date = "2023-11-17"
 categories = [
-    "Development",
+    "Utils",
     "Tutorials",
 ]
 menu = "main"

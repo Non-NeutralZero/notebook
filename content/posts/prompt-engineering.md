@@ -4,7 +4,6 @@ description = ""
 tags = [
     "llm",
     "langchain",
-    "development",
 ]
 date = "2023-09-12"
 categories = [

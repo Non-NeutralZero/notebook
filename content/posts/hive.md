@@ -8,8 +8,7 @@ tags = [
 ]
 date = "2018-04-02"
 categories = [
-    "Development",
-    "Tutorials",
+    "Utils",
 ]
 menu = "main"
 parent = "tutorials"

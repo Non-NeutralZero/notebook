@@ -21,7 +21,7 @@ pygmentsStyle = "nord"
   weight = 20
 
 [[menu.after]]
-  name = "Linktr"
+  name = "Linktree"
   url = "https://linktr.ee/nonneutralzero"
   weight = 30
 

@@ -19,3 +19,7 @@ To get the parameters w and b (i.e. learning), we optimize on:
 i.e. 
 
 𝐽(𝑤, 𝑏) = 1/m(∑ ylog((𝑦̂) + (1-y)(1-log(1-𝑦̂)))
+
+## Implementation
+
+https://github.com/Non-NeutralZero/docs/blob/main/content/docs/Deep%20Learning/logregnn/CatVsNonCat.ipynb

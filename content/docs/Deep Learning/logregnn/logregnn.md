@@ -22,4 +22,4 @@ i.e.
 
 ## Implementation
 
-https://github.com/Non-NeutralZero/docs/blob/main/content/docs/Deep%20Learning/logregnn/CatVsNonCat.ipynb
+[github/Non-NeutralZero - CatVsNonCat.ipynb](https://github.com/Non-NeutralZero/docs/blob/main/content/docs/Deep%20Learning/logregnn/CatVsNonCat.ipynb)

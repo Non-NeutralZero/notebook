@@ -7,4 +7,4 @@
 *   P: ***We'll be looking to maximize the margin between the data points and the hyperplane, how do we do that?***
 *   S: Hinge Loss!
 *   P: ***Overfitting, this type of classifier would be very sensitive to outliers for example***
-*   S: Explorative data analysis, outliers analysis or allow misclassification (more on that below). 
+*   S: Explorative data analysis, outliers analysis or allow misclassification (soft margin). o

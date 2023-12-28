@@ -8,3 +8,5 @@
 *   The classification can be categorical or numerical
 *   The first node is called the **Root node**, the nodes in the middle are called **internal nodes**, and the results are called **leaf nodes**
 
+
+

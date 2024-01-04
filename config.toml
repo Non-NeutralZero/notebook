@@ -27,7 +27,7 @@ pygmentsStyle = "nord"
 
 [params]
   BookTheme = 'light'
-  BookRepo = 'https://github.com//Non-NeutralZero/docs'
+  BookRepo = 'https://non-neutralzero.github.io/notebook'
   BookSection = 'docs'
   BookCommitPath = 'commit'
 

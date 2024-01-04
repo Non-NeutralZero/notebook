@@ -5,7 +5,6 @@ type: docs
 
 # Overview
 
-
 ## Digital Notebook - NonNeutralZero
 An attempt at centralizing all my notes, documentation files, experiments and code snippets in a minimalist and structured manner.
 

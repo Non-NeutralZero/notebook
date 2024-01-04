@@ -1,6 +1,6 @@
 baseURL = 'https://non-neutralzero.github.io/notebook/'
 languageCode = 'en-us'
-title = 'Notebook - NonNeutralZero'
+title = 'Digital Notebook NonNeutralZero'
 theme = 'hugo-book'
 
 # Syntax highlighting

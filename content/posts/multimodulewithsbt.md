@@ -15,8 +15,6 @@ menu = "main"
 parent = "tutorials"
 +++
 
-<script src="https://gist.github.com/Non-NeutralZero/d5be154ee38962176bcc0bf49182c691.js"></script>
-
 ```scala
 import sbt.{Compile, Test, *}
 import Keys.{baseDirectory, libraryDependencies, *}
@@ -83,3 +81,6 @@ val sparkHive = "org.apache.spark" %% "spark-hive" %  sparkVersion
 
 lazy val sparkDependencies = Seq(sparkCore, sparkSQL, sparkHive)
 ```
+
+https://gist.github.com/Non-NeutralZero/d5be154ee38962176bcc0bf49182c691
+

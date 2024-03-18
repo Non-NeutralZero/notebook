@@ -2,4 +2,4 @@
 bookToc: false
 ---
 
-{{< figure src="/images/docs/datascience/sna/icons8-0-100.png" >}}
+{{< figure src="/notebook/images/docs/datascience/sna/icons8-0-100.png" >}}

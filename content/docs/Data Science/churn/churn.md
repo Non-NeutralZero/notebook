@@ -20,7 +20,7 @@ apparaître pendant différents stades du parcours client et requiert, par cons�
 retention adaptées à sa nature, ajustées au stade de la relation et personnalisés selon le segment du
 client.
 
-{{< figure src="/docs/images/docs/datascience/churn/image-2.png" >}}
+{{< figure src="/notebook/images/docs/datascience/churn/image-2.png" >}}
 
 ## Pre-Churn & Prediction du Churn 
 Une étude de churn s’effectue sur deux axes: l’analyse du churn et la prédiction du risque de churn.

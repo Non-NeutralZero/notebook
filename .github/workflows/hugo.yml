@@ -47,6 +47,13 @@ jobs:
       - name: Build Hugo site
         run: hugo --minify
 
+      - name: Upload artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: hugo-site
+          path: ./public
+          retention-days: 1
+
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v2
         with:

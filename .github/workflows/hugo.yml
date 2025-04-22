@@ -4,6 +4,11 @@ on:
   push:
     branches: [main]
 
+env:
+  HUGO_VERSION: "0.146.6"
+  HUGO_ENVIRONMENT: "production"
+  HUGO_ENV: "production"
+
 jobs:
   build-deploy:
     runs-on: ubuntu-latest

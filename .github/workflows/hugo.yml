@@ -4,19 +4,7 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    types: [opened, reopened, synchronize, closed]
   workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-  pull-requests: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
 
 jobs:
   build:
@@ -24,34 +12,23 @@ jobs:
     strategy:
       matrix:
         hugo-version:
-          - '0.146.6'
           - 'latest'
-    outputs:
-      pr_closed_merged: ${{ steps.pr_status.outputs.pr_closed_merged }}
-    steps:
-      - id: pr_status
-        if: github.event.pull_request
-        run: echo "pr_closed_merged=${{ github.event.pull_request.closed_at || github.event.pull_request.merged }}" >> "$GITHUB_OUTPUT"
+          - '0.134.2'
 
+    steps:
       - uses: actions/checkout@v4
         with:
           submodules: true  # Fetch Hugo themes
           fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
       - name: Setup Hugo
-        uses: peaceiris/actions-hugo@v2
+        uses: peaceiris/actions-hugo@v3
         with:
           hugo-version: ${{ matrix.hugo-version }}
           extended: true
 
       - name: Build Hugo site
         run: hugo --minify
-
-      - name: Upload Pages artifact
-        if: matrix.hugo-version == '0.146.6'
-        uses: actions/upload-pages-artifact@v2
-        with:
-          path: ./public
 
   deploy:
     runs-on: ubuntu-latest
@@ -64,3 +41,4 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
+

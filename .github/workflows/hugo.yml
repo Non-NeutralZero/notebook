@@ -5,26 +5,31 @@ on:
     branches: [main]
 
 jobs:
-  build-deploy:
+  build:
     runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        hugo-version:
+          - 'latest'
+          - '0.79.0'
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - uses: actions/checkout@v3
         with:
-          submodules: true
-          fetch-depth: 0
+          submodules: true  # Fetch Hugo themes (true OR recursive)
+          fetch-depth: 0    # Fetch all history for .GitInfo and .Lastmod
 
       - name: Setup Hugo
         uses: peaceiris/actions-hugo@v2
         with:
-          hugo-version: 'latest'
+          hugo-version: ${{ matrix.hugo-version }}
           extended: true
 
-      - name: Build
-        run: hugo --minify
+      - name: Run Hugo
+        working-directory: exampleSite
+        run: hugo --themesDir ../..
 
-      - name: Deploy to GitHub Pages
-        uses: peaceiris/actions-gh-pages@v3
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./public
+      # - name: Deploy
+      #   uses: peaceiris/actions-gh-pages@v3
+      #   with:
+      #     github_token: ${{ secrets.GITHUB_TOKEN }}
+      #     publish_dir: ./public

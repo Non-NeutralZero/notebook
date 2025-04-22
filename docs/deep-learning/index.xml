@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Digital Notebook NonNeutralZero</title><link>https://non-neutralzero.github.io/notebook/docs/deep-learning/</link><description>Recent content on Digital Notebook NonNeutralZero</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://non-neutralzero.github.io/notebook/docs/deep-learning/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://non-neutralzero.github.io/notebook/docs/deep-learning/logregnn/logregnn/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/deep-learning/logregnn/logregnn/</guid><description>&lt;h1 id="logistic-regression-as-a-neural-network">
+ Logistic Regression as a Neural Network
+ &lt;a class="anchor" href="#logistic-regression-as-a-neural-network">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="architecture">
+ Architecture
+ &lt;a class="anchor" href="#architecture">#&lt;/a>
+&lt;/h2>
+&lt;p>𝐺𝑖𝑣𝑒𝑛 𝑥 , 𝑦̂ = 𝑃(𝑦 = 1|𝑥), where 0 ≤ 𝑦̂ ≤ 1&lt;/p>
+&lt;p>Parameters of logistic regression&lt;/p>
+&lt;ol>
+&lt;li>Input observation,features matrix X&lt;/li>
+&lt;li>Target vector Y&lt;/li>
+&lt;li>Weights w&lt;/li>
+&lt;li>Threshold or bias b&lt;/li>
+&lt;li>Output: 𝑦̂, sigmoid(z) where z = 𝑤 𝑇 *𝑥 + 𝑏&lt;/li>
+&lt;/ol>
+&lt;p>To get the parameters w and b (i.e. learning), we optimize on:&lt;/p>
+&lt;p>𝐽(𝑤, 𝑏) = 1/m (∑ 𝐿(𝑦̂ (𝑖) , 𝑦 (𝑖) ))&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/deep-learning/noprop/noprop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/deep-learning/noprop/noprop/</guid><description>&lt;h1 id="noprop-training-neural-networks-without-back-propagation-or-forward-propagation">
+ NOPROP: TRAINING NEURAL NETWORKS WITHOUT BACK-PROPAGATION OR FORWARD-PROPAGATION
+ &lt;a class="anchor" href="#noprop-training-neural-networks-without-back-propagation-or-forward-propagation">#&lt;/a>
+&lt;/h1>
+&lt;p>Qinyu Li, Yee Whye Teh, Razvan Pascanu &lt;a href="https://arxiv.org/pdf/2503.24322">(arxiv)&lt;/a> &lt;!-- raw HTML omitted -->arxiv&lt;!-- raw HTML omitted -->&lt;/p></description></item></channel></rss>

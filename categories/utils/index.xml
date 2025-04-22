@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Utils on Digital Notebook NonNeutralZero</title><link>https://non-neutralzero.github.io/notebook/categories/utils/</link><description>Recent content in Utils on Digital Notebook NonNeutralZero</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 29 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://non-neutralzero.github.io/notebook/categories/utils/index.xml" rel="self" type="application/rss+xml"/><item><title>LaTex</title><link>https://non-neutralzero.github.io/notebook/posts/latex-misc/</link><pubDate>Wed, 29 Nov 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/latex-misc/</guid><description>&lt;h2 id="bibtex">
+ BibTex
+ &lt;a class="anchor" href="#bibtex">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="limit-number-of-authors-in-ieeetran">
+ Limit number of authors in IEEEtran
+ &lt;a class="anchor" href="#limit-number-of-authors-in-ieeetran">#&lt;/a>
+&lt;/h3>
+&lt;p>In the .bib file configure your IEEEtran as follows:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-latex" data-lang="latex">&lt;span style="display:flex;">&lt;span>@IEEEtranBSTCTL&lt;span style="color:#81a1c1">{&lt;/span>IEEEexample:BSTcontrol,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>CTLuse&lt;span style="color:#81a1c1">_&lt;/span>forced&lt;span style="color:#81a1c1">_&lt;/span>etal = &amp;#34;yes&amp;#34;,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>CTLmax&lt;span style="color:#81a1c1">_&lt;/span>names&lt;span style="color:#81a1c1">_&lt;/span>forced&lt;span style="color:#81a1c1">_&lt;/span>etal = &amp;#34;3&amp;#34;,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>CTLnames&lt;span style="color:#81a1c1">_&lt;/span>show&lt;span style="color:#81a1c1">_&lt;/span>etal = &amp;#34;2&amp;#34; &lt;span style="color:#81a1c1">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="cheat-sheets">
+ Cheat-sheets
+ &lt;a class="anchor" href="#cheat-sheets">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.overleaf.com/learn/latex/Bibliography_management_with_bibtex">Overleaf, Bibliography management with bibtex&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://merkel.texture.rocks/Latex/natbib.php">Sébastien Merkel, Reference sheet for natbib usage&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management">LaTeX/Bibliography Management. (2023, June 5). Wikibooks.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.reed.edu/it/help/LaTeX/bibtexstyles.html#:~:text=the%20official%20style.-,Discipline%20Specific%20Listings%20of%20BibTeX%20Journal%20Styles,-Art">Discipline Specific Listings of BibTeX Journal Styles&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Jupyter</title><link>https://non-neutralzero.github.io/notebook/posts/jupyter-misc/</link><pubDate>Mon, 20 Nov 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/jupyter-misc/</guid><description>&lt;h3 id="memory-usage">
+ Memory Usage
+ &lt;a class="anchor" href="#memory-usage">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">def&lt;/span> &lt;span style="color:#88c0d0">memory&lt;/span>&lt;span style="color:#eceff4">():&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1;font-weight:bold">with&lt;/span> &lt;span style="color:#81a1c1">open&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>&lt;span style="color:#a3be8c">&amp;#39;/proc/meminfo&amp;#39;&lt;/span>&lt;span style="color:#eceff4">,&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;r&amp;#39;&lt;/span>&lt;span style="color:#eceff4">)&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">as&lt;/span> mem&lt;span style="color:#eceff4">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ret &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#eceff4">{}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tmp &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#b48ead">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1;font-weight:bold">for&lt;/span> i &lt;span style="color:#81a1c1;font-weight:bold">in&lt;/span> mem&lt;span style="color:#eceff4">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sline &lt;span style="color:#81a1c1">=&lt;/span> i&lt;span style="color:#81a1c1">.&lt;/span>split&lt;span style="color:#eceff4">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1;font-weight:bold">if&lt;/span> &lt;span style="color:#81a1c1">str&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>sline&lt;span style="color:#eceff4">[&lt;/span>&lt;span style="color:#b48ead">0&lt;/span>&lt;span style="color:#eceff4">])&lt;/span> &lt;span style="color:#81a1c1">==&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;MemTotal:&amp;#39;&lt;/span>&lt;span style="color:#eceff4">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ret&lt;span style="color:#eceff4">[&lt;/span>&lt;span style="color:#a3be8c">&amp;#39;total&amp;#39;&lt;/span>&lt;span style="color:#eceff4">]&lt;/span> &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#81a1c1">int&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>sline&lt;span style="color:#eceff4">[&lt;/span>&lt;span style="color:#b48ead">1&lt;/span>&lt;span style="color:#eceff4">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1;font-weight:bold">elif&lt;/span> &lt;span style="color:#81a1c1">str&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>sline&lt;span style="color:#eceff4">[&lt;/span>&lt;span style="color:#b48ead">0&lt;/span>&lt;span style="color:#eceff4">])&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">in&lt;/span> &lt;span style="color:#eceff4">(&lt;/span>&lt;span style="color:#a3be8c">&amp;#39;MemFree:&amp;#39;&lt;/span>&lt;span style="color:#eceff4">,&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;Buffers:&amp;#39;&lt;/span>&lt;span style="color:#eceff4">,&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;Cached:&amp;#39;&lt;/span>&lt;span style="color:#eceff4">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tmp &lt;span style="color:#81a1c1">+=&lt;/span> &lt;span style="color:#81a1c1">int&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>sline&lt;span style="color:#eceff4">[&lt;/span>&lt;span style="color:#b48ead">1&lt;/span>&lt;span style="color:#eceff4">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ret&lt;span style="color:#eceff4">[&lt;/span>&lt;span style="color:#a3be8c">&amp;#39;free&amp;#39;&lt;/span>&lt;span style="color:#eceff4">]&lt;/span> &lt;span style="color:#81a1c1">=&lt;/span> tmp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ret&lt;span style="color:#eceff4">[&lt;/span>&lt;span style="color:#a3be8c">&amp;#39;used&amp;#39;&lt;/span>&lt;span style="color:#eceff4">]&lt;/span> &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#81a1c1">int&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>ret&lt;span style="color:#eceff4">[&lt;/span>&lt;span style="color:#a3be8c">&amp;#39;total&amp;#39;&lt;/span>&lt;span style="color:#eceff4">])&lt;/span> &lt;span style="color:#81a1c1">-&lt;/span> &lt;span style="color:#81a1c1">int&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>ret&lt;span style="color:#eceff4">[&lt;/span>&lt;span style="color:#a3be8c">&amp;#39;free&amp;#39;&lt;/span>&lt;span style="color:#eceff4">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1;font-weight:bold">return&lt;/span> ret
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="no-hang-up">
+ No Hang Up
+ &lt;a class="anchor" href="#no-hang-up">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>nohup jupyter notebook &lt;span style="color:#eceff4">-&lt;/span>-no-browser &lt;span style="color:#eceff4">&amp;gt;&lt;/span> notebook&lt;span style="color:#eceff4">.&lt;/span>&lt;span style="color:#8fbcbb">log&lt;/span> &lt;span style="color:#b48ead">2&lt;/span>&lt;span style="color:#eceff4">&amp;gt;&amp;amp;&lt;/span>&lt;span style="color:#b48ead">1&lt;/span> &lt;span style="color:#eceff4">&amp;amp;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="workaround-no-cells-output">
+ Workaround: no cells output
+ &lt;a class="anchor" href="#workaround-no-cells-output">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>se &lt;span style="color:#81a1c1">=&lt;/span> time&lt;span style="color:#81a1c1">.&lt;/span>time&lt;span style="color:#eceff4">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">print&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>train&lt;span style="color:#81a1c1">.&lt;/span>rdd&lt;span style="color:#81a1c1">.&lt;/span>getNumPartitions&lt;span style="color:#eceff4">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">print&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>test&lt;span style="color:#81a1c1">.&lt;/span>rdd&lt;span style="color:#81a1c1">.&lt;/span>getNumPartitions&lt;span style="color:#eceff4">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>e &lt;span style="color:#81a1c1">=&lt;/span> time&lt;span style="color:#81a1c1">.&lt;/span>time&lt;span style="color:#eceff4">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">print&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;Training time = &lt;/span>&lt;span style="color:#a3be8c">{}&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">.&lt;/span>format&lt;span style="color:#eceff4">(&lt;/span>e &lt;span style="color:#81a1c1">-&lt;/span> se&lt;span style="color:#eceff4">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>your_float_variable &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#eceff4">(&lt;/span>e &lt;span style="color:#81a1c1">-&lt;/span> se&lt;span style="color:#eceff4">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>comment &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;Training time for getnumpartition:&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># Open the file in append mode and write the comment and variable&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">with&lt;/span> &lt;span style="color:#81a1c1">open&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>&lt;span style="color:#a3be8c">&amp;#39;output.txt&amp;#39;&lt;/span>&lt;span style="color:#eceff4">,&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;a&amp;#39;&lt;/span>&lt;span style="color:#eceff4">)&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">as&lt;/span> f&lt;span style="color:#eceff4">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> f&lt;span style="color:#81a1c1">.&lt;/span>write&lt;span style="color:#eceff4">(&lt;/span>&lt;span style="color:#a3be8c">f&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;&lt;/span>&lt;span style="color:#a3be8c">{&lt;/span>comment&lt;span style="color:#a3be8c">}&lt;/span>&lt;span style="color:#a3be8c"> &lt;/span>&lt;span style="color:#a3be8c">{&lt;/span>your_float_variable&lt;span style="color:#a3be8c">}&lt;/span>&lt;span style="color:#ebcb8b">\n&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;&lt;/span>&lt;span style="color:#eceff4">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="related-entries">
+ Related Entries
+ &lt;a class="anchor" href="#related-entries">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://non-neutralzero.github.io/docs/posts/dash-jupyterlab/">Run plotly in JupyterLab&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>VS Code Configuration &amp; Set-up</title><link>https://non-neutralzero.github.io/notebook/posts/vscode/</link><pubDate>Fri, 17 Nov 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/vscode/</guid><description>&lt;h2 id="configuration">
+ Configuration
+ &lt;a class="anchor" href="#configuration">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="remote-ssh">
+ Remote SSH
+ &lt;a class="anchor" href="#remote-ssh">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>Host machine
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Hostname machine.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> User user_name
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> IdentityFile path/to/ssh/key
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="remote-ssh---ssh-tunnel">
+ Remote SSH - SSH Tunnel
+ &lt;a class="anchor" href="#remote-ssh---ssh-tunnel">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>Host tunnel_machine
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Hostname machine.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> User user_name
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> IdentityFile path/to/ssh/key
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Host machine_after_tunnel
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Hostname machine_after_tunnel.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> User user_name
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> IdentityFile path/to/ssh/key
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ForwardAgent yes
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ProxyJump tunnel_machine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="pc-configuration">
+ PC Configuration
+ &lt;a class="anchor" href="#pc-configuration">#&lt;/a>
+&lt;/h2>
+&lt;p>Authorize your windows local machine to connect to remote machine.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>$USER_AT_HOST&lt;span style="color:#eceff4">=&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;your-user-name-on-host@hostname&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$PUBKEYPATH&lt;span style="color:#eceff4">=&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;&lt;/span>$HOME&lt;span style="color:#a3be8c">\.ssh\id_ed25519.pub&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$pubKey&lt;span style="color:#eceff4">=(&lt;/span>&lt;span style="color:#81a1c1">Get-Content&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;&lt;/span>$PUBKEYPATH&lt;span style="color:#a3be8c">&amp;#34;&lt;/span> &lt;span style="color:#eceff4">|&lt;/span> &lt;span style="color:#81a1c1">Out-String&lt;/span>&lt;span style="color:#eceff4">);&lt;/span> ssh &lt;span style="color:#a3be8c">&amp;#34;&lt;/span>$USER_AT_HOST&lt;span style="color:#a3be8c">&amp;#34;&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;mkdir -p ~/.ssh &amp;amp;&amp;amp; chmod 700 ~/.ssh &amp;amp;&amp;amp; echo &amp;#39;&lt;/span>${pubKey}&lt;span style="color:#a3be8c">&amp;#39; &amp;gt;&amp;gt; ~/.ssh/authorized_keys &amp;amp;&amp;amp; chmod 600 ~/.ssh/authorized_keys&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Verify that the &lt;em>&lt;strong>authorized_keys&lt;/strong>&lt;/em> file in the &lt;em>&lt;strong>.ssh&lt;/strong>&lt;/em> folder for your remote user on the SSH host is owned by you and no other user has permission to access it.&lt;/p></description></item><item><title>Run plotly in JupyterLab</title><link>https://non-neutralzero.github.io/notebook/posts/dash-jupyterlab/</link><pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/dash-jupyterlab/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">1&lt;/span> pip uninstall plotly
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">2&lt;/span> jupyter labextension uninstall @jupyterlab/plotly-extension
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">3&lt;/span> jupyter labextension uninstall jupyterlab-plotly 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">4&lt;/span> jupyter labextension uninstall plotlywidget
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">5&lt;/span> jupyter labextension update --all
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">6&lt;/span> pip install plotly&lt;span style="color:#81a1c1">==&lt;/span>5.17.0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">7&lt;/span> pip install &lt;span style="color:#a3be8c">&amp;#34;jupyterlab&amp;gt;=3&amp;#34;&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;ipywidgets&amp;gt;=7.6&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">8&lt;/span> pip install jupyter-dash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">9&lt;/span> jupyter labextension list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="useful-links">
+ Useful Links
+ &lt;a class="anchor" href="#useful-links">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>What is Right extension for Plotly in JupyterLab?
+&lt;a href="https://stackoverflow.com/questions/62604893/what-is-right-extension-for-plotly-in-jupyterlab">https://stackoverflow.com/questions/62604893/what-is-right-extension-for-plotly-in-jupyterlab&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://jupyter-docker-stacks.readthedocs.io/en/latest/">https://jupyter-docker-stacks.readthedocs.io/en/latest/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/jupyter/docker-stacks">https://github.com/jupyter/docker-stacks&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/plotly/plotly.py">https://github.com/plotly/plotly.py&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Install python packages offline</title><link>https://non-neutralzero.github.io/notebook/posts/offline_pip/</link><pubDate>Tue, 20 Jun 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/offline_pip/</guid><description>&lt;p>1- Download packages locally using a requirements file or download a single package&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>pip download -r requirements.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">## Example - single package&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python -m pip download &lt;span style="color:#ebcb8b">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ebcb8b">&lt;/span>--only-binary&lt;span style="color:#81a1c1">=&lt;/span>:all: &lt;span style="color:#ebcb8b">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ebcb8b">&lt;/span>--platform manylinux1_x86_64 --platform linux_x86_64 --platform any &lt;span style="color:#ebcb8b">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ebcb8b">&lt;/span>--python-version &lt;span style="color:#b48ead">39&lt;/span> &lt;span style="color:#ebcb8b">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ebcb8b">&lt;/span>--implementation cp &lt;span style="color:#ebcb8b">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ebcb8b">&lt;/span>--abi cp39m --abi cp39 --abi abi3 --abi none &lt;span style="color:#ebcb8b">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ebcb8b">&lt;/span>scipy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>2- Copy them to the a temporary folder in your remote machine
+3- On your machine, Activate conda and then install them using pip - specify installation options&lt;/p></description></item><item><title>Git commands I often use</title><link>https://non-neutralzero.github.io/notebook/posts/git-commands/</link><pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/git-commands/</guid><description>&lt;h2 id="add">
+ Add
+ &lt;a class="anchor" href="#add">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># only add files with .scala extension&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git ls-files &lt;span style="color:#81a1c1">[&lt;/span>path&lt;span style="color:#81a1c1">]&lt;/span> &lt;span style="color:#eceff4">|&lt;/span> grep &lt;span style="color:#a3be8c">&amp;#39;\.scala$&amp;#39;&lt;/span> &lt;span style="color:#eceff4">|&lt;/span> xargs git add
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git stash --keep-index
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>Hive</title><link>https://non-neutralzero.github.io/notebook/posts/hive/</link><pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/hive/</guid><description>&lt;h2 id="snippets">
+ Snippets
+ &lt;a class="anchor" href="#snippets">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">-- set identifiers to none for the query below to work and 
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">-- set it back to column once it&amp;#39;s done
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">&lt;/span>&lt;span style="color:#81a1c1;font-weight:bold">set&lt;/span> hive&lt;span style="color:#eceff4">.&lt;/span>support&lt;span style="color:#eceff4">.&lt;/span>quoted&lt;span style="color:#eceff4">.&lt;/span>identifiers &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">none&lt;/span>&lt;span style="color:#eceff4">;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="hive-3">
+ HIVE 3
+ &lt;a class="anchor" href="#hive-3">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>BI Code typically use &lt;code>db.table&lt;/code> - needs to change to &lt;code>db&lt;/code>.&lt;code>table&lt;/code>&lt;/li>
+&lt;li>Default path : /warehouse/tablespace/external/hive/default.db/test_table&lt;/li>
+&lt;/ul>
+&lt;h2 id="resources--useful-links">
+ Resources &amp;amp; Useful Links
+ &lt;a class="anchor" href="#resources--useful-links">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://cwiki.apache.org/confluence/display/Hive/Hive&amp;#43;Transactions">ACID + HIVE&lt;/a>&lt;/p></description></item></channel></rss>

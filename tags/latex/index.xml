@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Latex on Digital Notebook NonNeutralZero</title><link>https://non-neutralzero.github.io/notebook/tags/latex/</link><description>Recent content in Latex on Digital Notebook NonNeutralZero</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 29 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://non-neutralzero.github.io/notebook/tags/latex/index.xml" rel="self" type="application/rss+xml"/><item><title>LaTex</title><link>https://non-neutralzero.github.io/notebook/posts/latex-misc/</link><pubDate>Wed, 29 Nov 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/latex-misc/</guid><description>&lt;h2 id="bibtex">
+ BibTex
+ &lt;a class="anchor" href="#bibtex">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="limit-number-of-authors-in-ieeetran">
+ Limit number of authors in IEEEtran
+ &lt;a class="anchor" href="#limit-number-of-authors-in-ieeetran">#&lt;/a>
+&lt;/h3>
+&lt;p>In the .bib file configure your IEEEtran as follows:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-latex" data-lang="latex">&lt;span style="display:flex;">&lt;span>@IEEEtranBSTCTL&lt;span style="color:#81a1c1">{&lt;/span>IEEEexample:BSTcontrol,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>CTLuse&lt;span style="color:#81a1c1">_&lt;/span>forced&lt;span style="color:#81a1c1">_&lt;/span>etal = &amp;#34;yes&amp;#34;,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>CTLmax&lt;span style="color:#81a1c1">_&lt;/span>names&lt;span style="color:#81a1c1">_&lt;/span>forced&lt;span style="color:#81a1c1">_&lt;/span>etal = &amp;#34;3&amp;#34;,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>CTLnames&lt;span style="color:#81a1c1">_&lt;/span>show&lt;span style="color:#81a1c1">_&lt;/span>etal = &amp;#34;2&amp;#34; &lt;span style="color:#81a1c1">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="cheat-sheets">
+ Cheat-sheets
+ &lt;a class="anchor" href="#cheat-sheets">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.overleaf.com/learn/latex/Bibliography_management_with_bibtex">Overleaf, Bibliography management with bibtex&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://merkel.texture.rocks/Latex/natbib.php">Sébastien Merkel, Reference sheet for natbib usage&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management">LaTeX/Bibliography Management. (2023, June 5). Wikibooks.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.reed.edu/it/help/LaTeX/bibtexstyles.html#:~:text=the%20official%20style.-,Discipline%20Specific%20Listings%20of%20BibTeX%20Journal%20Styles,-Art">Discipline Specific Listings of BibTeX Journal Styles&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

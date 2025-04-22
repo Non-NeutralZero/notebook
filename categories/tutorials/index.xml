@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Tutorials on Digital Notebook NonNeutralZero</title><link>https://non-neutralzero.github.io/notebook/categories/tutorials/</link><description>Recent content in Tutorials on Digital Notebook NonNeutralZero</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 17 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://non-neutralzero.github.io/notebook/categories/tutorials/index.xml" rel="self" type="application/rss+xml"/><item><title>VS Code Configuration &amp; Set-up</title><link>https://non-neutralzero.github.io/notebook/posts/vscode/</link><pubDate>Fri, 17 Nov 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/vscode/</guid><description>&lt;h2 id="configuration">
+ Configuration
+ &lt;a class="anchor" href="#configuration">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="remote-ssh">
+ Remote SSH
+ &lt;a class="anchor" href="#remote-ssh">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>Host machine
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Hostname machine.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> User user_name
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> IdentityFile path/to/ssh/key
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="remote-ssh---ssh-tunnel">
+ Remote SSH - SSH Tunnel
+ &lt;a class="anchor" href="#remote-ssh---ssh-tunnel">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>Host tunnel_machine
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Hostname machine.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> User user_name
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> IdentityFile path/to/ssh/key
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Host machine_after_tunnel
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Hostname machine_after_tunnel.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> User user_name
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> IdentityFile path/to/ssh/key
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ForwardAgent yes
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ProxyJump tunnel_machine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="pc-configuration">
+ PC Configuration
+ &lt;a class="anchor" href="#pc-configuration">#&lt;/a>
+&lt;/h2>
+&lt;p>Authorize your windows local machine to connect to remote machine.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>$USER_AT_HOST&lt;span style="color:#eceff4">=&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;your-user-name-on-host@hostname&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$PUBKEYPATH&lt;span style="color:#eceff4">=&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;&lt;/span>$HOME&lt;span style="color:#a3be8c">\.ssh\id_ed25519.pub&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$pubKey&lt;span style="color:#eceff4">=(&lt;/span>&lt;span style="color:#81a1c1">Get-Content&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;&lt;/span>$PUBKEYPATH&lt;span style="color:#a3be8c">&amp;#34;&lt;/span> &lt;span style="color:#eceff4">|&lt;/span> &lt;span style="color:#81a1c1">Out-String&lt;/span>&lt;span style="color:#eceff4">);&lt;/span> ssh &lt;span style="color:#a3be8c">&amp;#34;&lt;/span>$USER_AT_HOST&lt;span style="color:#a3be8c">&amp;#34;&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;mkdir -p ~/.ssh &amp;amp;&amp;amp; chmod 700 ~/.ssh &amp;amp;&amp;amp; echo &amp;#39;&lt;/span>${pubKey}&lt;span style="color:#a3be8c">&amp;#39; &amp;gt;&amp;gt; ~/.ssh/authorized_keys &amp;amp;&amp;amp; chmod 600 ~/.ssh/authorized_keys&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Verify that the &lt;em>&lt;strong>authorized_keys&lt;/strong>&lt;/em> file in the &lt;em>&lt;strong>.ssh&lt;/strong>&lt;/em> folder for your remote user on the SSH host is owned by you and no other user has permission to access it.&lt;/p></description></item><item><title>Building a website using Hugo and Hosting it on GitHub Pages</title><link>https://non-neutralzero.github.io/notebook/posts/hugo-website/</link><pubDate>Thu, 26 Oct 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/hugo-website/</guid><description>&lt;h2 id="installations">
+ Installations
+ &lt;a class="anchor" href="#installations">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Install Git - &lt;a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Link&lt;/a>&lt;/li>
+&lt;li>Install Hugo - &lt;a href="https://gohugo.io/installation/">Link&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="configuration">
+ Configuration
+ &lt;a class="anchor" href="#configuration">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>To create a new Hugo website, run:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>hugo new site mynewsite
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>then cd to the directory&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">cd&lt;/span> mynewsite
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Initialize the site as a git repository&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>git init
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Choose the &lt;a href="https://themes.gohugo.io/">hugo theme&lt;/a> that suits you.
+&lt;blockquote class="book-hint info">
+ Hugo offer a selection of themes developed by the community. This site for example was built using &lt;a href="https://github.com/alex-shpak/hugo-book">Hugo-Book&lt;/a>.
+&lt;/blockquote>
+&lt;/li>
+&lt;li>Add the theme as a submodule&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># For example:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Add the theme to your site configuration file&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># Could be config.toml OR config.yaml OR hugo.toml OR hugo.yaml&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">echo&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;theme = &amp;#39;hugo-book&amp;#39;&amp;#34;&lt;/span> &amp;gt;&amp;gt; config.toml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>You will be able to see a first version of your website locally by running:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>hugo server --minify 
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Edit your configuration file&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>baseURL &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;http://example.org/&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>languageCode &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;en-us&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>title &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;My New Hugo Site&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote class="book-hint warning">
+ &lt;strong>Theme ConfigurationGuidelines&lt;/strong>&lt;br>
+Themes&amp;rsquo; publishers offer guidelines to configure your webiste in accordance to the theme. Check your theme publisher page on &lt;a href="https://themes.gohugo.io/">hugo themes&lt;/a> or their theme github repo for guidance and help.
+&lt;/blockquote>
+
+&lt;h2 id="hosting-on-github-pages">
+ Hosting on Github Pages
+ &lt;a class="anchor" href="#hosting-on-github-pages">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>On your project settings, go to Pages. You&amp;rsquo;ll be able to see your site&amp;rsquo;s link.&lt;/li>
+&lt;li>Choose a Build and deployment source (Github actions OR deploy from branch).&lt;/li>
+&lt;li>You can also choose to publish it on a custom domain.&lt;/li>
+&lt;li>Edit your configuration file&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>baseURL &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;https://username.github.io/repository&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>languageCode &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;en-us&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>title &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;My New Hugo Site&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>theme &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;hugo-book&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="other-great-tools-for-building-static-websites">
+ Other Great Tools For Building Static Websites
+ &lt;a class="anchor" href="#other-great-tools-for-building-static-websites">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Sphinx &lt;a href="https://www.sphinx-doc.org/en/master/index.html">https://www.sphinx-doc.org/en/master/index.html&lt;/a>&lt;/li>
+&lt;li>VuePress &lt;a href="https://vuepress.vuejs.org/">https://vuepress.vuejs.org/&lt;/a>&lt;/li>
+&lt;li>Read the docs &lt;a href="https://about.readthedocs.com/features/">https://about.readthedocs.com/features/&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Run plotly in JupyterLab</title><link>https://non-neutralzero.github.io/notebook/posts/dash-jupyterlab/</link><pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/dash-jupyterlab/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">1&lt;/span> pip uninstall plotly
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">2&lt;/span> jupyter labextension uninstall @jupyterlab/plotly-extension
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">3&lt;/span> jupyter labextension uninstall jupyterlab-plotly 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">4&lt;/span> jupyter labextension uninstall plotlywidget
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">5&lt;/span> jupyter labextension update --all
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">6&lt;/span> pip install plotly&lt;span style="color:#81a1c1">==&lt;/span>5.17.0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">7&lt;/span> pip install &lt;span style="color:#a3be8c">&amp;#34;jupyterlab&amp;gt;=3&amp;#34;&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;ipywidgets&amp;gt;=7.6&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">8&lt;/span> pip install jupyter-dash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">9&lt;/span> jupyter labextension list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="useful-links">
+ Useful Links
+ &lt;a class="anchor" href="#useful-links">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>What is Right extension for Plotly in JupyterLab?
+&lt;a href="https://stackoverflow.com/questions/62604893/what-is-right-extension-for-plotly-in-jupyterlab">https://stackoverflow.com/questions/62604893/what-is-right-extension-for-plotly-in-jupyterlab&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://jupyter-docker-stacks.readthedocs.io/en/latest/">https://jupyter-docker-stacks.readthedocs.io/en/latest/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/jupyter/docker-stacks">https://github.com/jupyter/docker-stacks&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/plotly/plotly.py">https://github.com/plotly/plotly.py&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Install python packages offline</title><link>https://non-neutralzero.github.io/notebook/posts/offline_pip/</link><pubDate>Tue, 20 Jun 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/offline_pip/</guid><description>&lt;p>1- Download packages locally using a requirements file or download a single package&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>pip download -r requirements.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">## Example - single package&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python -m pip download &lt;span style="color:#ebcb8b">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ebcb8b">&lt;/span>--only-binary&lt;span style="color:#81a1c1">=&lt;/span>:all: &lt;span style="color:#ebcb8b">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ebcb8b">&lt;/span>--platform manylinux1_x86_64 --platform linux_x86_64 --platform any &lt;span style="color:#ebcb8b">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ebcb8b">&lt;/span>--python-version &lt;span style="color:#b48ead">39&lt;/span> &lt;span style="color:#ebcb8b">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ebcb8b">&lt;/span>--implementation cp &lt;span style="color:#ebcb8b">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ebcb8b">&lt;/span>--abi cp39m --abi cp39 --abi abi3 --abi none &lt;span style="color:#ebcb8b">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ebcb8b">&lt;/span>scipy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>2- Copy them to the a temporary folder in your remote machine
+3- On your machine, Activate conda and then install them using pip - specify installation options&lt;/p></description></item><item><title>Running PySpark &amp; Jupyter With Docker</title><link>https://non-neutralzero.github.io/notebook/posts/pyspark-jupyter-docker/</link><pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/pyspark-jupyter-docker/</guid><description>&lt;p>Thanks to the Jupyter community, it&amp;rsquo;s now much easier to run PySpark on Jupyter using Docker.
+There are two ways you can do this : 1. the &amp;ldquo;direct&amp;rdquo; way and 2. the customized way.&lt;/p>
+&lt;h2 id="the-direct-way">
+ The &amp;ldquo;direct&amp;rdquo; way
+ &lt;a class="anchor" href="#the-direct-way">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>verify your local settings are aligned with the pre-requisites to run this container, grosso modo
+make sure docker is installed, of course !
+&lt;blockquote class="book-hint info">
+ You have to have about 4 GB of free space
+&lt;/blockquote>
+&lt;/p></description></item><item><title>How to document your code?</title><link>https://non-neutralzero.github.io/notebook/posts/code-documentation-scala/</link><pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/code-documentation-scala/</guid><description>&lt;h2 id="comment-documenter-">
+ Comment documenter ?
+ &lt;a class="anchor" href="#comment-documenter-">#&lt;/a>
+&lt;/h2>
+&lt;p>Les mêmes principes et critères d’un bon code devraient s’appliquer à la documentation:&lt;/p>
+&lt;ul>
+&lt;li>Conventionnelle&lt;/li>
+&lt;li>Simple&lt;/li>
+&lt;li>Facile à comprendre&lt;/li>
+&lt;/ul>
+&lt;p>En plus des critères d’un bon code, une bonne documentation devrait aussi être:&lt;/p>
+&lt;ul>
+&lt;li>Explicative (intention du code, règles métiers, clarification du code, mise en garde sur les conséquences d’une mauvaise
+utilisation, indications pour le testing)&lt;/li>
+&lt;li>Non-redondante&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-scala" data-lang="scala">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">/**
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">* Returns the temperature.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">*/&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>int get_temperature&lt;span style="color:#81a1c1">(&lt;/span>void&lt;span style="color:#81a1c1">)&lt;/span> &lt;span style="color:#81a1c1">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">return&lt;/span> temperature&lt;span style="color:#81a1c1">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Non-bruitée&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-scala" data-lang="scala">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">/**
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">* Always returns true.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">*/&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>public boolean isAvailable&lt;span style="color:#81a1c1">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">{&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">return&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">false&lt;/span>&lt;span style="color:#81a1c1">;}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="bonnes-pratiques">
+ Bonnes pratiques
+ &lt;a class="anchor" href="#bonnes-pratiques">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="introduire-son-code">
+ Introduire son code.
+ &lt;a class="anchor" href="#introduire-son-code">#&lt;/a>
+&lt;/h3>
+&lt;p>Décrire le contexte ou le background du code est une bonne pratique qui permettra aux lecteurs de se positionner par
+rapport aux conditions dans lesquelles le code a été généré et à ses objectifs.&lt;/p></description></item></channel></rss>

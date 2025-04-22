@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Markdown on Digital Notebook NonNeutralZero</title><link>https://non-neutralzero.github.io/notebook/tags/markdown/</link><description>Recent content in Markdown on Digital Notebook NonNeutralZero</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 26 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://non-neutralzero.github.io/notebook/tags/markdown/index.xml" rel="self" type="application/rss+xml"/><item><title>Building a website using Hugo and Hosting it on GitHub Pages</title><link>https://non-neutralzero.github.io/notebook/posts/hugo-website/</link><pubDate>Thu, 26 Oct 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/hugo-website/</guid><description>&lt;h2 id="installations">
+ Installations
+ &lt;a class="anchor" href="#installations">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Install Git - &lt;a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Link&lt;/a>&lt;/li>
+&lt;li>Install Hugo - &lt;a href="https://gohugo.io/installation/">Link&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="configuration">
+ Configuration
+ &lt;a class="anchor" href="#configuration">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>To create a new Hugo website, run:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>hugo new site mynewsite
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>then cd to the directory&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">cd&lt;/span> mynewsite
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Initialize the site as a git repository&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>git init
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Choose the &lt;a href="https://themes.gohugo.io/">hugo theme&lt;/a> that suits you.
+&lt;blockquote class="book-hint info">
+ Hugo offer a selection of themes developed by the community. This site for example was built using &lt;a href="https://github.com/alex-shpak/hugo-book">Hugo-Book&lt;/a>.
+&lt;/blockquote>
+&lt;/li>
+&lt;li>Add the theme as a submodule&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># For example:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Add the theme to your site configuration file&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># Could be config.toml OR config.yaml OR hugo.toml OR hugo.yaml&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">echo&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;theme = &amp;#39;hugo-book&amp;#39;&amp;#34;&lt;/span> &amp;gt;&amp;gt; config.toml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>You will be able to see a first version of your website locally by running:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>hugo server --minify 
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Edit your configuration file&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>baseURL &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;http://example.org/&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>languageCode &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;en-us&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>title &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;My New Hugo Site&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote class="book-hint warning">
+ &lt;strong>Theme ConfigurationGuidelines&lt;/strong>&lt;br>
+Themes&amp;rsquo; publishers offer guidelines to configure your webiste in accordance to the theme. Check your theme publisher page on &lt;a href="https://themes.gohugo.io/">hugo themes&lt;/a> or their theme github repo for guidance and help.
+&lt;/blockquote>
+
+&lt;h2 id="hosting-on-github-pages">
+ Hosting on Github Pages
+ &lt;a class="anchor" href="#hosting-on-github-pages">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>On your project settings, go to Pages. You&amp;rsquo;ll be able to see your site&amp;rsquo;s link.&lt;/li>
+&lt;li>Choose a Build and deployment source (Github actions OR deploy from branch).&lt;/li>
+&lt;li>You can also choose to publish it on a custom domain.&lt;/li>
+&lt;li>Edit your configuration file&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>baseURL &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;https://username.github.io/repository&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>languageCode &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;en-us&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>title &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;My New Hugo Site&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>theme &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;hugo-book&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="other-great-tools-for-building-static-websites">
+ Other Great Tools For Building Static Websites
+ &lt;a class="anchor" href="#other-great-tools-for-building-static-websites">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Sphinx &lt;a href="https://www.sphinx-doc.org/en/master/index.html">https://www.sphinx-doc.org/en/master/index.html&lt;/a>&lt;/li>
+&lt;li>VuePress &lt;a href="https://vuepress.vuejs.org/">https://vuepress.vuejs.org/&lt;/a>&lt;/li>
+&lt;li>Read the docs &lt;a href="https://about.readthedocs.com/features/">https://about.readthedocs.com/features/&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

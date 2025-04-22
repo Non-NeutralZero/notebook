@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Digital Notebook NonNeutralZero</title><link>https://non-neutralzero.github.io/notebook/docs/machine-learning/</link><description>Recent content on Digital Notebook NonNeutralZero</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://non-neutralzero.github.io/notebook/docs/machine-learning/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://non-neutralzero.github.io/notebook/docs/machine-learning/decision-trees/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/machine-learning/decision-trees/</guid><description>&lt;h1 id="decision-trees">
+ Decision Trees
+ &lt;a class="anchor" href="#decision-trees">#&lt;/a>
+&lt;/h1>
+&lt;ul>
+&lt;li>On each node, a decision tree asks a question and answers it with yes/no to classify observations under that node.&lt;/li>
+&lt;li>The question could be based on a specific True/False &lt;em>(is obs.feature = something)&lt;/em> question or could be based on numeric data &lt;em>(is obs.feature &amp;gt; 10)&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Decision_tree_model.png" alt="Decision tree example" />&lt;/p>
+&lt;ul>
+&lt;li>The classification can be categorical or numerical&lt;/li>
+&lt;li>The first node is called the &lt;strong>Root node&lt;/strong>, the nodes in the middle are called &lt;strong>internal nodes&lt;/strong>, and the results are called &lt;strong>leaf nodes&lt;/strong>&lt;/li>
+&lt;/ul></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/machine-learning/explainability-snippets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/machine-learning/explainability-snippets/</guid><description>&lt;p>version 2018&lt;/p>
+&lt;h3 id="why-model-interpretation">
+ Why Model interpretation?
+ &lt;a class="anchor" href="#why-model-interpretation">#&lt;/a>
+&lt;/h3>
+&lt;p>Understanding how a model makes decisions — model interpretation — has been on the front burner since the end of 2017. Decision support systems and models they are based on don’t explain which features influenced their decisions were known as black boxes.
+Model interpretability is not only important for companies that need to fulfill legal obligations to customers. It serves a technical purpose as well. Every ML model considers input features (problem properties) to predict results (outputs). The more relevant features we create and use to train an ML model during feature engineering, the more accurate results we can get and the simpler our model is. That’s why the ability to understand how the model makes predictions is crucial for its debugging.
+&lt;a href="https://www.kdnuggets.com/2019/02/ai-data-science-advances-trends.html">source&lt;/a>&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/machine-learning/random-forests/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/machine-learning/random-forests/</guid><description>&lt;h1 id="random-forest">
+ Random Forest
+ &lt;a class="anchor" href="#random-forest">#&lt;/a>
+&lt;/h1>
+&lt;p>Random forests are built from decision trees&lt;/p>
+&lt;ol>
+&lt;li>Initially, the original data is bootstrapped by randomly sampling the data and creating a new dataset with the same size as the original one (to be able to do that, duplicated obs are allowed - aka random sampling with replacement)&lt;/li>
+&lt;li>Build a decision tree based on the bootsrapped data&lt;/li>
+&lt;li>Randomly select features (typically sqrt(n_features)) from the bootsrapped data when splitting nodes (this is called random subspace method)&lt;/li>
+&lt;li>Go back to step 1 and repeat&lt;/li>
+&lt;/ol>
+&lt;!-- raw HTML omitted -->
+&lt;ul>
+&lt;li>&lt;em>&lt;strong>does all the original data end up in the sampled subsets?&lt;/strong>&lt;/em> For each created Decision Tree, the non-bootsrapped data is called &lt;strong>Out-of-Bag&lt;/strong> data.&lt;/li>
+&lt;li>&lt;em>&lt;strong>once we get the forest, how do we use it?&lt;/strong>&lt;/em> if we want to get a prediction, we run an obs through all the trees of the forest and pick the prediction with the most votes. (this process is called &lt;strong>Bagging&lt;/strong>, i.e. &lt;strong>B&lt;/strong>ootsrapping + &lt;strong>agg&lt;/strong>regating single predictions)&lt;/li>
+&lt;li>&lt;em>&lt;strong>how do we evaluate the random forest?&lt;/strong>&lt;/em> we can evaluate it using the out-of-bag error, i.e. measure how accurate the forest predicts out-of-bag data.&lt;/li>
+&lt;li>&lt;em>&lt;strong>is there an optimal number of features for each bootsrapped sample?&lt;/strong>&lt;/em> Yes. Given that we can measure the out-of-bag error, we can use it to compare forests built on different samples of features and select the one with the smallest error.&lt;/li>
+&lt;li>&lt;em>&lt;strong>how many times should we repeat this processes?&lt;/strong>&lt;/em> plot OOB error rate vs. number of trees&lt;/li>
+&lt;li>&lt;em>&lt;strong>Why are they called random forests?&lt;/strong>&lt;/em> Because of the random sampling concept at step 1 and at step 3&lt;/li>
+&lt;li>&lt;em>&lt;strong>how is a forest better than one decision tree?&lt;/strong>&lt;/em> By getting a large number of different (high variance ) trees&lt;/li>
+&lt;/ul>
+&lt;p>For more, see Chapter 15 in &lt;a href="https://web.stanford.edu/~hastie/Papers/ESLII.pdf">https://web.stanford.edu/~hastie/Papers/ESLII.pdf&lt;/a>&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/machine-learning/svm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/machine-learning/svm/</guid><description>&lt;h1 id="svm">
+ SVM
+ &lt;a class="anchor" href="#svm">#&lt;/a>
+&lt;/h1>
+&lt;ul>
+&lt;li>P: &lt;em>&lt;strong>We want to figure out a way to separate data into classes&lt;/strong>&lt;/em>&lt;/li>
+&lt;li>S: A linear classifier can help. Its objective would be to divide data using a hyperplane, and since the data points, from each class, that are closer to the classifier will be helping us decide on the orientation and position of the classifier, we can give them a fancy name (Support vectors) and call our linear classifier, the Support Vector Classifier.&lt;/li>
+&lt;li>P: &lt;em>&lt;strong>But, If the data is &amp;ldquo;clearly&amp;rdquo; separable, then we won&amp;rsquo;t have one classifier - we would actually end up with so many possibilities to choosing one hyperplane AND we have to make sure future predictions are more likely to be correctly classified&lt;/strong>&lt;/em>&lt;/li>
+&lt;li>S: We could choose the one that insures the maximum distance between the Support vectors of the two classes (we&amp;rsquo;ll call it a &lt;strong>maximum margin classifier&lt;/strong>.) That way, we&amp;rsquo;ll seperate the existing data, and have more confidence in classifying future data points.&lt;/li>
+&lt;li>P: &lt;em>&lt;strong>We&amp;rsquo;ll be looking to maximize the margin between the data points and the hyperplane, how do we do that?&lt;/strong>&lt;/em>&lt;/li>
+&lt;li>S: Hinge Loss!&lt;/li>
+&lt;li>P: &lt;em>&lt;strong>Overfitting, this type of classifier would be very sensitive to outliers for example&lt;/strong>&lt;/em>&lt;/li>
+&lt;li>S: Explorative data analysis, outliers analysis or allow misclassification (soft margin). o&lt;/li>
+&lt;/ul></description></item></channel></rss>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Spark on Digital Notebook NonNeutralZero</title><link>https://non-neutralzero.github.io/notebook/tags/spark/</link><description>Recent content in Spark on Digital Notebook NonNeutralZero</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 08 Jun 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://non-neutralzero.github.io/notebook/tags/spark/index.xml" rel="self" type="application/rss+xml"/><item><title>Running PySpark &amp; Jupyter With Docker</title><link>https://non-neutralzero.github.io/notebook/posts/pyspark-jupyter-docker/</link><pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/pyspark-jupyter-docker/</guid><description>&lt;p>Thanks to the Jupyter community, it&amp;rsquo;s now much easier to run PySpark on Jupyter using Docker.
+There are two ways you can do this : 1. the &amp;ldquo;direct&amp;rdquo; way and 2. the customized way.&lt;/p>
+&lt;h2 id="the-direct-way">
+ The &amp;ldquo;direct&amp;rdquo; way
+ &lt;a class="anchor" href="#the-direct-way">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>verify your local settings are aligned with the pre-requisites to run this container, grosso modo
+make sure docker is installed, of course !
+&lt;blockquote class="book-hint info">
+ You have to have about 4 GB of free space
+&lt;/blockquote>
+&lt;/p></description></item></channel></rss>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Langchain on Digital Notebook NonNeutralZero</title><link>https://non-neutralzero.github.io/notebook/tags/langchain/</link><description>Recent content in Langchain on Digital Notebook NonNeutralZero</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 12 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://non-neutralzero.github.io/notebook/tags/langchain/index.xml" rel="self" type="application/rss+xml"/><item><title>Prompt Engineering</title><link>https://non-neutralzero.github.io/notebook/posts/prompt-engineering/</link><pubDate>Tue, 12 Sep 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/prompt-engineering/</guid><description>&lt;h2 id="rag-architecture">
+ RAG Architecture
+ &lt;a class="anchor" href="#rag-architecture">#&lt;/a>
+&lt;/h2>
+&lt;figure>&lt;img src="https://non-neutralzero.github.io/notebook/docs/images/posts/prompt-engineering/rag-architecture.jpg">
+&lt;/figure></description></item></channel></rss>

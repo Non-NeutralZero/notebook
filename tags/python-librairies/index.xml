@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python-Librairies on Digital Notebook NonNeutralZero</title><link>https://non-neutralzero.github.io/notebook/tags/python-librairies/</link><description>Recent content in Python-Librairies on Digital Notebook NonNeutralZero</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 24 Oct 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://non-neutralzero.github.io/notebook/tags/python-librairies/index.xml" rel="self" type="application/rss+xml"/><item><title>Run plotly in JupyterLab</title><link>https://non-neutralzero.github.io/notebook/posts/dash-jupyterlab/</link><pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/dash-jupyterlab/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">1&lt;/span> pip uninstall plotly
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">2&lt;/span> jupyter labextension uninstall @jupyterlab/plotly-extension
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">3&lt;/span> jupyter labextension uninstall jupyterlab-plotly 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">4&lt;/span> jupyter labextension uninstall plotlywidget
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">5&lt;/span> jupyter labextension update --all
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">6&lt;/span> pip install plotly&lt;span style="color:#81a1c1">==&lt;/span>5.17.0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">7&lt;/span> pip install &lt;span style="color:#a3be8c">&amp;#34;jupyterlab&amp;gt;=3&amp;#34;&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;ipywidgets&amp;gt;=7.6&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">8&lt;/span> pip install jupyter-dash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">9&lt;/span> jupyter labextension list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="useful-links">
+ Useful Links
+ &lt;a class="anchor" href="#useful-links">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>What is Right extension for Plotly in JupyterLab?
+&lt;a href="https://stackoverflow.com/questions/62604893/what-is-right-extension-for-plotly-in-jupyterlab">https://stackoverflow.com/questions/62604893/what-is-right-extension-for-plotly-in-jupyterlab&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://jupyter-docker-stacks.readthedocs.io/en/latest/">https://jupyter-docker-stacks.readthedocs.io/en/latest/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/jupyter/docker-stacks">https://github.com/jupyter/docker-stacks&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/plotly/plotly.py">https://github.com/plotly/plotly.py&lt;/a>&lt;/li>
+&lt;/ul></description></item></channel></rss>

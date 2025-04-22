@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Overview on Digital Notebook NonNeutralZero</title><link>https://non-neutralzero.github.io/notebook/</link><description>Recent content in Overview on Digital Notebook NonNeutralZero</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 15 Mar 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://non-neutralzero.github.io/notebook/index.xml" rel="self" type="application/rss+xml"/><item><title>Multi-module build based on sbt</title><link>https://non-neutralzero.github.io/notebook/posts/multimodulewithsbt/</link><pubDate>Fri, 15 Mar 2024 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/multimodulewithsbt/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-scala" data-lang="scala">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">import&lt;/span> &lt;span style="color:#8fbcbb">sbt.&lt;/span>&lt;span style="color:#81a1c1">{&lt;/span>&lt;span style="color:#8fbcbb">Compile&lt;/span>&lt;span style="color:#81a1c1">,&lt;/span> &lt;span style="color:#8fbcbb">Test&lt;/span>&lt;span style="color:#81a1c1">,&lt;/span> &lt;span style="color:#81a1c1">*}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">import&lt;/span> &lt;span style="color:#8fbcbb">Keys.&lt;/span>&lt;span style="color:#81a1c1">{&lt;/span>baseDirectory&lt;span style="color:#81a1c1">,&lt;/span> libraryDependencies&lt;span style="color:#81a1c1">,&lt;/span> &lt;span style="color:#81a1c1">*}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">// sbt.version = 1.6.2
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">&lt;/span>&lt;span style="color:#8fbcbb">ThisBuild&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> trackInternalDependencies &lt;span style="color:#81a1c1;font-weight:bold">:&lt;/span>&lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#8fbcbb">TrackLevel&lt;/span>&lt;span style="color:#81a1c1">.&lt;/span>&lt;span style="color:#8fbcbb">TrackIfMissing&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">lazy&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">val&lt;/span> welcome &lt;span style="color:#81a1c1;font-weight:bold">=&lt;/span> taskKey&lt;span style="color:#81a1c1">[&lt;/span>&lt;span style="color:#81a1c1">Unit&lt;/span>&lt;span style="color:#81a1c1">](&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;welcome&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">val&lt;/span> sparkVersion &lt;span style="color:#81a1c1;font-weight:bold">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;2.4.0-cdh6.2.1&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">val&lt;/span> hiveVersion &lt;span style="color:#81a1c1;font-weight:bold">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;2.1.1-cdh6.2.1&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">lazy&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">val&lt;/span> commonSettings &lt;span style="color:#81a1c1;font-weight:bold">=&lt;/span> &lt;span style="color:#8fbcbb">Seq&lt;/span>&lt;span style="color:#81a1c1">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#616e87;font-style:italic">//organization := &amp;#34;com.nnz&amp;#34;,
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">&lt;/span> version &lt;span style="color:#81a1c1;font-weight:bold">:&lt;/span>&lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;0.1.0-SNAPSHOT&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> welcome &lt;span style="color:#81a1c1;font-weight:bold">:&lt;/span>&lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#81a1c1">{&lt;/span> println&lt;span style="color:#81a1c1">(&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;Welcome !&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">)},&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> scalaVersion &lt;span style="color:#81a1c1;font-weight:bold">:&lt;/span>&lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;2.11.12&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> javacOptions &lt;span style="color:#81a1c1">++=&lt;/span> &lt;span style="color:#8fbcbb">Seq&lt;/span>&lt;span style="color:#81a1c1">(&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;-source&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">,&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;15.0.10&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">,&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;-target&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">,&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;15.0.10&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">),&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> libraryDependencies &lt;span style="color:#81a1c1">++=&lt;/span> sparkDependencies&lt;span style="color:#81a1c1">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> resolvers &lt;span style="color:#81a1c1">++=&lt;/span> &lt;span style="color:#8fbcbb">Seq&lt;/span>&lt;span style="color:#81a1c1">(&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;Cloudera Versions&amp;#34;&lt;/span> at &lt;span style="color:#a3be8c">&amp;#34;https://repository.cloudera.com/artifactory/cloudera-repos/&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">lazy&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">val&lt;/span> root &lt;span style="color:#81a1c1;font-weight:bold">=&lt;/span> &lt;span style="color:#81a1c1">(&lt;/span>project in file&lt;span style="color:#81a1c1">(&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;.&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1">.&lt;/span>settings&lt;span style="color:#81a1c1">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> name &lt;span style="color:#81a1c1;font-weight:bold">:&lt;/span>&lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;multimodule-project&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> commonSettings&lt;span style="color:#81a1c1">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> update &lt;span style="color:#81a1c1">/&lt;/span> aggregate &lt;span style="color:#81a1c1;font-weight:bold">:&lt;/span>&lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">true&lt;/span>&lt;span style="color:#81a1c1">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1">.&lt;/span>aggregate&lt;span style="color:#81a1c1">(&lt;/span>warehouse&lt;span style="color:#81a1c1">,&lt;/span> ingestion&lt;span style="color:#81a1c1">,&lt;/span> processing&lt;span style="color:#81a1c1">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">lazy&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">val&lt;/span> warehouse &lt;span style="color:#81a1c1;font-weight:bold">=&lt;/span> &lt;span style="color:#81a1c1">(&lt;/span>project in file&lt;span style="color:#81a1c1">(&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;warehouse&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1">.&lt;/span>settings&lt;span style="color:#81a1c1">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> name &lt;span style="color:#81a1c1;font-weight:bold">:&lt;/span>&lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;warehouse&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> commonSettings&lt;span style="color:#81a1c1">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8fbcbb">Compile&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> scalaSource &lt;span style="color:#81a1c1;font-weight:bold">:&lt;/span>&lt;span style="color:#81a1c1">=&lt;/span> baseDirectory&lt;span style="color:#81a1c1">.&lt;/span>value &lt;span style="color:#81a1c1">/&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;.&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;src&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;main&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;scala&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8fbcbb">Test&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> scalaSource &lt;span style="color:#81a1c1;font-weight:bold">:&lt;/span>&lt;span style="color:#81a1c1">=&lt;/span> baseDirectory&lt;span style="color:#81a1c1">.&lt;/span>value &lt;span style="color:#81a1c1">/&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;.&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;src&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;test&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;scala&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">lazy&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">val&lt;/span> ingestion &lt;span style="color:#81a1c1;font-weight:bold">=&lt;/span> &lt;span style="color:#81a1c1">(&lt;/span>project in file&lt;span style="color:#81a1c1">(&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;ingestion&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1">.&lt;/span>dependsOn&lt;span style="color:#81a1c1">(&lt;/span>warehouse&lt;span style="color:#81a1c1">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1">.&lt;/span>settings&lt;span style="color:#81a1c1">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> name &lt;span style="color:#81a1c1;font-weight:bold">:&lt;/span>&lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;ingestion&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> commonSettings&lt;span style="color:#81a1c1">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8fbcbb">Compile&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> scalaSource &lt;span style="color:#81a1c1;font-weight:bold">:&lt;/span>&lt;span style="color:#81a1c1">=&lt;/span> baseDirectory&lt;span style="color:#81a1c1">.&lt;/span>value &lt;span style="color:#81a1c1">/&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;.&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;src&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;main&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;scala&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8fbcbb">Test&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> scalaSource &lt;span style="color:#81a1c1;font-weight:bold">:&lt;/span>&lt;span style="color:#81a1c1">=&lt;/span> baseDirectory&lt;span style="color:#81a1c1">.&lt;/span>value &lt;span style="color:#81a1c1">/&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;.&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;src&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;test&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;scala&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">lazy&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">val&lt;/span> processing &lt;span style="color:#81a1c1;font-weight:bold">=&lt;/span> &lt;span style="color:#81a1c1">(&lt;/span>project in file&lt;span style="color:#81a1c1">(&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;processing&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1">.&lt;/span>dependsOn&lt;span style="color:#81a1c1">(&lt;/span>warehouse&lt;span style="color:#81a1c1">,&lt;/span> ingestion&lt;span style="color:#81a1c1">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1">.&lt;/span>settings&lt;span style="color:#81a1c1">(&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> name &lt;span style="color:#81a1c1;font-weight:bold">:&lt;/span>&lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;processing&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> commonSettings&lt;span style="color:#81a1c1">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8fbcbb">Compile&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> scalaSource &lt;span style="color:#81a1c1;font-weight:bold">:&lt;/span>&lt;span style="color:#81a1c1">=&lt;/span> baseDirectory&lt;span style="color:#81a1c1">.&lt;/span>value &lt;span style="color:#81a1c1">/&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;.&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;src&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;main&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;scala&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#8fbcbb">Test&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> scalaSource &lt;span style="color:#81a1c1;font-weight:bold">:&lt;/span>&lt;span style="color:#81a1c1">=&lt;/span> baseDirectory&lt;span style="color:#81a1c1">.&lt;/span>value &lt;span style="color:#81a1c1">/&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;.&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;src&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;test&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">/&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;scala&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">,&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">/**
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"> * Spark Dependencies
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"> */&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">val&lt;/span> sparkCore &lt;span style="color:#81a1c1;font-weight:bold">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;org.apache.spark&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">%%&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;spark-core&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">%&lt;/span> sparkVersion
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">val&lt;/span> sparkSQL &lt;span style="color:#81a1c1;font-weight:bold">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;org.apache.spark&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">%%&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;spark-sql&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">%&lt;/span> sparkVersion
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">val&lt;/span> sparkHive &lt;span style="color:#81a1c1;font-weight:bold">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;org.apache.spark&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">%%&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;spark-hive&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">%&lt;/span> sparkVersion
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">lazy&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">val&lt;/span> sparkDependencies &lt;span style="color:#81a1c1;font-weight:bold">=&lt;/span> &lt;span style="color:#8fbcbb">Seq&lt;/span>&lt;span style="color:#81a1c1">(&lt;/span>sparkCore&lt;span style="color:#81a1c1">,&lt;/span> sparkSQL&lt;span style="color:#81a1c1">,&lt;/span> sparkHive&lt;span style="color:#81a1c1">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://gist.github.com/Non-NeutralZero/d5be154ee38962176bcc0bf49182c691">https://gist.github.com/Non-NeutralZero/d5be154ee38962176bcc0bf49182c691&lt;/a>&lt;/p></description></item><item><title>LaTex</title><link>https://non-neutralzero.github.io/notebook/posts/latex-misc/</link><pubDate>Wed, 29 Nov 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/latex-misc/</guid><description>&lt;h2 id="bibtex">
+ BibTex
+ &lt;a class="anchor" href="#bibtex">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="limit-number-of-authors-in-ieeetran">
+ Limit number of authors in IEEEtran
+ &lt;a class="anchor" href="#limit-number-of-authors-in-ieeetran">#&lt;/a>
+&lt;/h3>
+&lt;p>In the .bib file configure your IEEEtran as follows:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-latex" data-lang="latex">&lt;span style="display:flex;">&lt;span>@IEEEtranBSTCTL&lt;span style="color:#81a1c1">{&lt;/span>IEEEexample:BSTcontrol,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>CTLuse&lt;span style="color:#81a1c1">_&lt;/span>forced&lt;span style="color:#81a1c1">_&lt;/span>etal = &amp;#34;yes&amp;#34;,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>CTLmax&lt;span style="color:#81a1c1">_&lt;/span>names&lt;span style="color:#81a1c1">_&lt;/span>forced&lt;span style="color:#81a1c1">_&lt;/span>etal = &amp;#34;3&amp;#34;,
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>CTLnames&lt;span style="color:#81a1c1">_&lt;/span>show&lt;span style="color:#81a1c1">_&lt;/span>etal = &amp;#34;2&amp;#34; &lt;span style="color:#81a1c1">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="cheat-sheets">
+ Cheat-sheets
+ &lt;a class="anchor" href="#cheat-sheets">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;a href="https://www.overleaf.com/learn/latex/Bibliography_management_with_bibtex">Overleaf, Bibliography management with bibtex&lt;/a>&lt;/li>
+&lt;li>&lt;a href="http://merkel.texture.rocks/Latex/natbib.php">Sébastien Merkel, Reference sheet for natbib usage&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://en.wikibooks.org/wiki/LaTeX/Bibliography_Management">LaTeX/Bibliography Management. (2023, June 5). Wikibooks.&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://www.reed.edu/it/help/LaTeX/bibtexstyles.html#:~:text=the%20official%20style.-,Discipline%20Specific%20Listings%20of%20BibTeX%20Journal%20Styles,-Art">Discipline Specific Listings of BibTeX Journal Styles&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Jupyter</title><link>https://non-neutralzero.github.io/notebook/posts/jupyter-misc/</link><pubDate>Mon, 20 Nov 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/jupyter-misc/</guid><description>&lt;h3 id="memory-usage">
+ Memory Usage
+ &lt;a class="anchor" href="#memory-usage">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">def&lt;/span> &lt;span style="color:#88c0d0">memory&lt;/span>&lt;span style="color:#eceff4">():&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1;font-weight:bold">with&lt;/span> &lt;span style="color:#81a1c1">open&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>&lt;span style="color:#a3be8c">&amp;#39;/proc/meminfo&amp;#39;&lt;/span>&lt;span style="color:#eceff4">,&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;r&amp;#39;&lt;/span>&lt;span style="color:#eceff4">)&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">as&lt;/span> mem&lt;span style="color:#eceff4">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ret &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#eceff4">{}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tmp &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#b48ead">0&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1;font-weight:bold">for&lt;/span> i &lt;span style="color:#81a1c1;font-weight:bold">in&lt;/span> mem&lt;span style="color:#eceff4">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sline &lt;span style="color:#81a1c1">=&lt;/span> i&lt;span style="color:#81a1c1">.&lt;/span>split&lt;span style="color:#eceff4">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1;font-weight:bold">if&lt;/span> &lt;span style="color:#81a1c1">str&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>sline&lt;span style="color:#eceff4">[&lt;/span>&lt;span style="color:#b48ead">0&lt;/span>&lt;span style="color:#eceff4">])&lt;/span> &lt;span style="color:#81a1c1">==&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;MemTotal:&amp;#39;&lt;/span>&lt;span style="color:#eceff4">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ret&lt;span style="color:#eceff4">[&lt;/span>&lt;span style="color:#a3be8c">&amp;#39;total&amp;#39;&lt;/span>&lt;span style="color:#eceff4">]&lt;/span> &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#81a1c1">int&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>sline&lt;span style="color:#eceff4">[&lt;/span>&lt;span style="color:#b48ead">1&lt;/span>&lt;span style="color:#eceff4">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1;font-weight:bold">elif&lt;/span> &lt;span style="color:#81a1c1">str&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>sline&lt;span style="color:#eceff4">[&lt;/span>&lt;span style="color:#b48ead">0&lt;/span>&lt;span style="color:#eceff4">])&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">in&lt;/span> &lt;span style="color:#eceff4">(&lt;/span>&lt;span style="color:#a3be8c">&amp;#39;MemFree:&amp;#39;&lt;/span>&lt;span style="color:#eceff4">,&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;Buffers:&amp;#39;&lt;/span>&lt;span style="color:#eceff4">,&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;Cached:&amp;#39;&lt;/span>&lt;span style="color:#eceff4">):&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> tmp &lt;span style="color:#81a1c1">+=&lt;/span> &lt;span style="color:#81a1c1">int&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>sline&lt;span style="color:#eceff4">[&lt;/span>&lt;span style="color:#b48ead">1&lt;/span>&lt;span style="color:#eceff4">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ret&lt;span style="color:#eceff4">[&lt;/span>&lt;span style="color:#a3be8c">&amp;#39;free&amp;#39;&lt;/span>&lt;span style="color:#eceff4">]&lt;/span> &lt;span style="color:#81a1c1">=&lt;/span> tmp
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ret&lt;span style="color:#eceff4">[&lt;/span>&lt;span style="color:#a3be8c">&amp;#39;used&amp;#39;&lt;/span>&lt;span style="color:#eceff4">]&lt;/span> &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#81a1c1">int&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>ret&lt;span style="color:#eceff4">[&lt;/span>&lt;span style="color:#a3be8c">&amp;#39;total&amp;#39;&lt;/span>&lt;span style="color:#eceff4">])&lt;/span> &lt;span style="color:#81a1c1">-&lt;/span> &lt;span style="color:#81a1c1">int&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>ret&lt;span style="color:#eceff4">[&lt;/span>&lt;span style="color:#a3be8c">&amp;#39;free&amp;#39;&lt;/span>&lt;span style="color:#eceff4">])&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#81a1c1;font-weight:bold">return&lt;/span> ret
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="no-hang-up">
+ No Hang Up
+ &lt;a class="anchor" href="#no-hang-up">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>nohup jupyter notebook &lt;span style="color:#eceff4">-&lt;/span>-no-browser &lt;span style="color:#eceff4">&amp;gt;&lt;/span> notebook&lt;span style="color:#eceff4">.&lt;/span>&lt;span style="color:#8fbcbb">log&lt;/span> &lt;span style="color:#b48ead">2&lt;/span>&lt;span style="color:#eceff4">&amp;gt;&amp;amp;&lt;/span>&lt;span style="color:#b48ead">1&lt;/span> &lt;span style="color:#eceff4">&amp;amp;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="workaround-no-cells-output">
+ Workaround: no cells output
+ &lt;a class="anchor" href="#workaround-no-cells-output">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-python" data-lang="python">&lt;span style="display:flex;">&lt;span>se &lt;span style="color:#81a1c1">=&lt;/span> time&lt;span style="color:#81a1c1">.&lt;/span>time&lt;span style="color:#eceff4">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">print&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>train&lt;span style="color:#81a1c1">.&lt;/span>rdd&lt;span style="color:#81a1c1">.&lt;/span>getNumPartitions&lt;span style="color:#eceff4">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">print&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>test&lt;span style="color:#81a1c1">.&lt;/span>rdd&lt;span style="color:#81a1c1">.&lt;/span>getNumPartitions&lt;span style="color:#eceff4">())&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>e &lt;span style="color:#81a1c1">=&lt;/span> time&lt;span style="color:#81a1c1">.&lt;/span>time&lt;span style="color:#eceff4">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">print&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;Training time = &lt;/span>&lt;span style="color:#a3be8c">{}&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;&lt;/span>&lt;span style="color:#81a1c1">.&lt;/span>format&lt;span style="color:#eceff4">(&lt;/span>e &lt;span style="color:#81a1c1">-&lt;/span> se&lt;span style="color:#eceff4">))&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>your_float_variable &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#eceff4">(&lt;/span>e &lt;span style="color:#81a1c1">-&lt;/span> se&lt;span style="color:#eceff4">)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>comment &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;Training time for getnumpartition:&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># Open the file in append mode and write the comment and variable&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">with&lt;/span> &lt;span style="color:#81a1c1">open&lt;/span>&lt;span style="color:#eceff4">(&lt;/span>&lt;span style="color:#a3be8c">&amp;#39;output.txt&amp;#39;&lt;/span>&lt;span style="color:#eceff4">,&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;a&amp;#39;&lt;/span>&lt;span style="color:#eceff4">)&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">as&lt;/span> f&lt;span style="color:#eceff4">:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> f&lt;span style="color:#81a1c1">.&lt;/span>write&lt;span style="color:#eceff4">(&lt;/span>&lt;span style="color:#a3be8c">f&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;&lt;/span>&lt;span style="color:#a3be8c">{&lt;/span>comment&lt;span style="color:#a3be8c">}&lt;/span>&lt;span style="color:#a3be8c"> &lt;/span>&lt;span style="color:#a3be8c">{&lt;/span>your_float_variable&lt;span style="color:#a3be8c">}&lt;/span>&lt;span style="color:#ebcb8b">\n&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;&lt;/span>&lt;span style="color:#eceff4">)&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="related-entries">
+ Related Entries
+ &lt;a class="anchor" href="#related-entries">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;a href="https://non-neutralzero.github.io/docs/posts/dash-jupyterlab/">Run plotly in JupyterLab&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>VS Code Configuration &amp; Set-up</title><link>https://non-neutralzero.github.io/notebook/posts/vscode/</link><pubDate>Fri, 17 Nov 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/vscode/</guid><description>&lt;h2 id="configuration">
+ Configuration
+ &lt;a class="anchor" href="#configuration">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="remote-ssh">
+ Remote SSH
+ &lt;a class="anchor" href="#remote-ssh">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>Host machine
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Hostname machine.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> User user_name
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> IdentityFile path/to/ssh/key
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="remote-ssh---ssh-tunnel">
+ Remote SSH - SSH Tunnel
+ &lt;a class="anchor" href="#remote-ssh---ssh-tunnel">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>Host tunnel_machine
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Hostname machine.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> User user_name
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> IdentityFile path/to/ssh/key
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Host machine_after_tunnel
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Hostname machine_after_tunnel.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> User user_name
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> IdentityFile path/to/ssh/key
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ForwardAgent yes
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ProxyJump tunnel_machine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="pc-configuration">
+ PC Configuration
+ &lt;a class="anchor" href="#pc-configuration">#&lt;/a>
+&lt;/h2>
+&lt;p>Authorize your windows local machine to connect to remote machine.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>$USER_AT_HOST&lt;span style="color:#eceff4">=&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;your-user-name-on-host@hostname&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$PUBKEYPATH&lt;span style="color:#eceff4">=&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;&lt;/span>$HOME&lt;span style="color:#a3be8c">\.ssh\id_ed25519.pub&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$pubKey&lt;span style="color:#eceff4">=(&lt;/span>&lt;span style="color:#81a1c1">Get-Content&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;&lt;/span>$PUBKEYPATH&lt;span style="color:#a3be8c">&amp;#34;&lt;/span> &lt;span style="color:#eceff4">|&lt;/span> &lt;span style="color:#81a1c1">Out-String&lt;/span>&lt;span style="color:#eceff4">);&lt;/span> ssh &lt;span style="color:#a3be8c">&amp;#34;&lt;/span>$USER_AT_HOST&lt;span style="color:#a3be8c">&amp;#34;&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;mkdir -p ~/.ssh &amp;amp;&amp;amp; chmod 700 ~/.ssh &amp;amp;&amp;amp; echo &amp;#39;&lt;/span>${pubKey}&lt;span style="color:#a3be8c">&amp;#39; &amp;gt;&amp;gt; ~/.ssh/authorized_keys &amp;amp;&amp;amp; chmod 600 ~/.ssh/authorized_keys&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Verify that the &lt;em>&lt;strong>authorized_keys&lt;/strong>&lt;/em> file in the &lt;em>&lt;strong>.ssh&lt;/strong>&lt;/em> folder for your remote user on the SSH host is owned by you and no other user has permission to access it.&lt;/p></description></item><item><title>Building a website using Hugo and Hosting it on GitHub Pages</title><link>https://non-neutralzero.github.io/notebook/posts/hugo-website/</link><pubDate>Thu, 26 Oct 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/hugo-website/</guid><description>&lt;h2 id="installations">
+ Installations
+ &lt;a class="anchor" href="#installations">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Install Git - &lt;a href="https://git-scm.com/book/en/v2/Getting-Started-Installing-Git">Link&lt;/a>&lt;/li>
+&lt;li>Install Hugo - &lt;a href="https://gohugo.io/installation/">Link&lt;/a>&lt;/li>
+&lt;/ul>
+&lt;h2 id="configuration">
+ Configuration
+ &lt;a class="anchor" href="#configuration">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>To create a new Hugo website, run:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>hugo new site mynewsite
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>then cd to the directory&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">cd&lt;/span> mynewsite
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Initialize the site as a git repository&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>git init
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Choose the &lt;a href="https://themes.gohugo.io/">hugo theme&lt;/a> that suits you.
+&lt;blockquote class="book-hint info">
+ Hugo offer a selection of themes developed by the community. This site for example was built using &lt;a href="https://github.com/alex-shpak/hugo-book">Hugo-Book&lt;/a>.
+&lt;/blockquote>
+&lt;/li>
+&lt;li>Add the theme as a submodule&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># For example:&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git submodule add https://github.com/alex-shpak/hugo-book themes/hugo-book
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Add the theme to your site configuration file&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># Could be config.toml OR config.yaml OR hugo.toml OR hugo.yaml&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">echo&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;theme = &amp;#39;hugo-book&amp;#39;&amp;#34;&lt;/span> &amp;gt;&amp;gt; config.toml
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>You will be able to see a first version of your website locally by running:&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>hugo server --minify 
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Edit your configuration file&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>baseURL &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;http://example.org/&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>languageCode &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;en-us&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>title &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;My New Hugo Site&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;blockquote class="book-hint warning">
+ &lt;strong>Theme ConfigurationGuidelines&lt;/strong>&lt;br>
+Themes&amp;rsquo; publishers offer guidelines to configure your webiste in accordance to the theme. Check your theme publisher page on &lt;a href="https://themes.gohugo.io/">hugo themes&lt;/a> or their theme github repo for guidance and help.
+&lt;/blockquote>
+
+&lt;h2 id="hosting-on-github-pages">
+ Hosting on Github Pages
+ &lt;a class="anchor" href="#hosting-on-github-pages">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>On your project settings, go to Pages. You&amp;rsquo;ll be able to see your site&amp;rsquo;s link.&lt;/li>
+&lt;li>Choose a Build and deployment source (Github actions OR deploy from branch).&lt;/li>
+&lt;li>You can also choose to publish it on a custom domain.&lt;/li>
+&lt;li>Edit your configuration file&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>baseURL &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;https://username.github.io/repository&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>languageCode &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;en-us&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>title &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;My New Hugo Site&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>theme &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#39;hugo-book&amp;#39;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="other-great-tools-for-building-static-websites">
+ Other Great Tools For Building Static Websites
+ &lt;a class="anchor" href="#other-great-tools-for-building-static-websites">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Sphinx &lt;a href="https://www.sphinx-doc.org/en/master/index.html">https://www.sphinx-doc.org/en/master/index.html&lt;/a>&lt;/li>
+&lt;li>VuePress &lt;a href="https://vuepress.vuejs.org/">https://vuepress.vuejs.org/&lt;/a>&lt;/li>
+&lt;li>Read the docs &lt;a href="https://about.readthedocs.com/features/">https://about.readthedocs.com/features/&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Run plotly in JupyterLab</title><link>https://non-neutralzero.github.io/notebook/posts/dash-jupyterlab/</link><pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/dash-jupyterlab/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">1&lt;/span> pip uninstall plotly
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">2&lt;/span> jupyter labextension uninstall @jupyterlab/plotly-extension
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">3&lt;/span> jupyter labextension uninstall jupyterlab-plotly 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">4&lt;/span> jupyter labextension uninstall plotlywidget
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">5&lt;/span> jupyter labextension update --all
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">6&lt;/span> pip install plotly&lt;span style="color:#81a1c1">==&lt;/span>5.17.0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">7&lt;/span> pip install &lt;span style="color:#a3be8c">&amp;#34;jupyterlab&amp;gt;=3&amp;#34;&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;ipywidgets&amp;gt;=7.6&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">8&lt;/span> pip install jupyter-dash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">9&lt;/span> jupyter labextension list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="useful-links">
+ Useful Links
+ &lt;a class="anchor" href="#useful-links">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>What is Right extension for Plotly in JupyterLab?
+&lt;a href="https://stackoverflow.com/questions/62604893/what-is-right-extension-for-plotly-in-jupyterlab">https://stackoverflow.com/questions/62604893/what-is-right-extension-for-plotly-in-jupyterlab&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://jupyter-docker-stacks.readthedocs.io/en/latest/">https://jupyter-docker-stacks.readthedocs.io/en/latest/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/jupyter/docker-stacks">https://github.com/jupyter/docker-stacks&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/plotly/plotly.py">https://github.com/plotly/plotly.py&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Prompt Engineering</title><link>https://non-neutralzero.github.io/notebook/posts/prompt-engineering/</link><pubDate>Tue, 12 Sep 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/prompt-engineering/</guid><description>&lt;h2 id="rag-architecture">
+ RAG Architecture
+ &lt;a class="anchor" href="#rag-architecture">#&lt;/a>
+&lt;/h2>
+&lt;figure>&lt;img src="https://non-neutralzero.github.io/notebook/docs/images/posts/prompt-engineering/rag-architecture.jpg">
+&lt;/figure></description></item><item><title>Install python packages offline</title><link>https://non-neutralzero.github.io/notebook/posts/offline_pip/</link><pubDate>Tue, 20 Jun 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/offline_pip/</guid><description>&lt;p>1- Download packages locally using a requirements file or download a single package&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>pip download -r requirements.txt
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">## Example - single package&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>python -m pip download &lt;span style="color:#ebcb8b">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ebcb8b">&lt;/span>--only-binary&lt;span style="color:#81a1c1">=&lt;/span>:all: &lt;span style="color:#ebcb8b">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ebcb8b">&lt;/span>--platform manylinux1_x86_64 --platform linux_x86_64 --platform any &lt;span style="color:#ebcb8b">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ebcb8b">&lt;/span>--python-version &lt;span style="color:#b48ead">39&lt;/span> &lt;span style="color:#ebcb8b">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ebcb8b">&lt;/span>--implementation cp &lt;span style="color:#ebcb8b">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ebcb8b">&lt;/span>--abi cp39m --abi cp39 --abi abi3 --abi none &lt;span style="color:#ebcb8b">\
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#ebcb8b">&lt;/span>scipy
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>2- Copy them to the a temporary folder in your remote machine
+3- On your machine, Activate conda and then install them using pip - specify installation options&lt;/p></description></item><item><title>Running PySpark &amp; Jupyter With Docker</title><link>https://non-neutralzero.github.io/notebook/posts/pyspark-jupyter-docker/</link><pubDate>Thu, 08 Jun 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/pyspark-jupyter-docker/</guid><description>&lt;p>Thanks to the Jupyter community, it&amp;rsquo;s now much easier to run PySpark on Jupyter using Docker.
+There are two ways you can do this : 1. the &amp;ldquo;direct&amp;rdquo; way and 2. the customized way.&lt;/p>
+&lt;h2 id="the-direct-way">
+ The &amp;ldquo;direct&amp;rdquo; way
+ &lt;a class="anchor" href="#the-direct-way">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>
+&lt;p>verify your local settings are aligned with the pre-requisites to run this container, grosso modo
+make sure docker is installed, of course !
+&lt;blockquote class="book-hint info">
+ You have to have about 4 GB of free space
+&lt;/blockquote>
+&lt;/p></description></item><item><title>Git commands I often use</title><link>https://non-neutralzero.github.io/notebook/posts/git-commands/</link><pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/git-commands/</guid><description>&lt;h2 id="add">
+ Add
+ &lt;a class="anchor" href="#add">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># only add files with .scala extension&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git ls-files &lt;span style="color:#81a1c1">[&lt;/span>path&lt;span style="color:#81a1c1">]&lt;/span> &lt;span style="color:#eceff4">|&lt;/span> grep &lt;span style="color:#a3be8c">&amp;#39;\.scala$&amp;#39;&lt;/span> &lt;span style="color:#eceff4">|&lt;/span> xargs git add
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git stash --keep-index
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>How to document your code?</title><link>https://non-neutralzero.github.io/notebook/posts/code-documentation-scala/</link><pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/code-documentation-scala/</guid><description>&lt;h2 id="comment-documenter-">
+ Comment documenter ?
+ &lt;a class="anchor" href="#comment-documenter-">#&lt;/a>
+&lt;/h2>
+&lt;p>Les mêmes principes et critères d’un bon code devraient s’appliquer à la documentation:&lt;/p>
+&lt;ul>
+&lt;li>Conventionnelle&lt;/li>
+&lt;li>Simple&lt;/li>
+&lt;li>Facile à comprendre&lt;/li>
+&lt;/ul>
+&lt;p>En plus des critères d’un bon code, une bonne documentation devrait aussi être:&lt;/p>
+&lt;ul>
+&lt;li>Explicative (intention du code, règles métiers, clarification du code, mise en garde sur les conséquences d’une mauvaise
+utilisation, indications pour le testing)&lt;/li>
+&lt;li>Non-redondante&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-scala" data-lang="scala">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">/**
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">* Returns the temperature.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">*/&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>int get_temperature&lt;span style="color:#81a1c1">(&lt;/span>void&lt;span style="color:#81a1c1">)&lt;/span> &lt;span style="color:#81a1c1">{&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">return&lt;/span> temperature&lt;span style="color:#81a1c1">;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;li>Non-bruitée&lt;/li>
+&lt;/ul>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-scala" data-lang="scala">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">/**
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">* Always returns true.
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">*/&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>public boolean isAvailable&lt;span style="color:#81a1c1">()&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">{&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">return&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">false&lt;/span>&lt;span style="color:#81a1c1">;}&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="bonnes-pratiques">
+ Bonnes pratiques
+ &lt;a class="anchor" href="#bonnes-pratiques">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="introduire-son-code">
+ Introduire son code.
+ &lt;a class="anchor" href="#introduire-son-code">#&lt;/a>
+&lt;/h3>
+&lt;p>Décrire le contexte ou le background du code est une bonne pratique qui permettra aux lecteurs de se positionner par
+rapport aux conditions dans lesquelles le code a été généré et à ses objectifs.&lt;/p></description></item><item><title>Hive</title><link>https://non-neutralzero.github.io/notebook/posts/hive/</link><pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/hive/</guid><description>&lt;h2 id="snippets">
+ Snippets
+ &lt;a class="anchor" href="#snippets">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">-- set identifiers to none for the query below to work and 
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">-- set it back to column once it&amp;#39;s done
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">&lt;/span>&lt;span style="color:#81a1c1;font-weight:bold">set&lt;/span> hive&lt;span style="color:#eceff4">.&lt;/span>support&lt;span style="color:#eceff4">.&lt;/span>quoted&lt;span style="color:#eceff4">.&lt;/span>identifiers &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">none&lt;/span>&lt;span style="color:#eceff4">;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="hive-3">
+ HIVE 3
+ &lt;a class="anchor" href="#hive-3">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>BI Code typically use &lt;code>db.table&lt;/code> - needs to change to &lt;code>db&lt;/code>.&lt;code>table&lt;/code>&lt;/li>
+&lt;li>Default path : /warehouse/tablespace/external/hive/default.db/test_table&lt;/li>
+&lt;/ul>
+&lt;h2 id="resources--useful-links">
+ Resources &amp;amp; Useful Links
+ &lt;a class="anchor" href="#resources--useful-links">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://cwiki.apache.org/confluence/display/Hive/Hive&amp;#43;Transactions">ACID + HIVE&lt;/a>&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/data-science/churn/churn-problem-framing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/data-science/churn/churn-problem-framing/</guid><description>&lt;h1 id="churn---problem-framing">
+ Churn - Problem Framing
+ &lt;a class="anchor" href="#churn---problem-framing">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="churn-reporting">
+ Churn reporting
+ &lt;a class="anchor" href="#churn-reporting">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>What happened? (Inactive point of view)&lt;/p>
+&lt;ul>
+&lt;li>In general cohorts work good here: start with a small population of churners and follow them over time&lt;/li>
+&lt;li>Clustering churners based on project and modeling bottom line&lt;/li>
+&lt;li>Example of small population of churners =&amp;gt; “Churners who generate more profits, churns who explicitly expressed their insatisfaction”: or choose another prioritization criterion&lt;/li>
+&lt;li>Monetary retention rates (monetary churn)&lt;/li>
+&lt;li>Reversed cohorts: start with the churn date (Month / Year) and follow the churners retrospectively&lt;/li>
+&lt;li>Product / offers / segments cohorts&lt;/li>
+&lt;li>Maybe change of nomenclature/perspective to make problem framing more accessible to other shareholders (Product Churn, Account Churn, Usage Churn&amp;hellip;etc)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Why did it happen?&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/data-science/churn/churn/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/data-science/churn/churn/</guid><description>&lt;p>version du 25-12-2018&lt;/p>
+&lt;h2 id="gestion-de-lattrition-ou-churn-management">
+ Gestion de l&amp;rsquo;attrition ou Churn management
+ &lt;a class="anchor" href="#gestion-de-lattrition-ou-churn-management">#&lt;/a>
+&lt;/h2>
+&lt;p>Le churn est un anglicisme qui désigne la perte des clients. La gestion du churn figure parmi les
+piliers les plus importants à tenir en compte lors de la gestion de fidélisation, car l’acquisition à elle
+seule ne peut pallier aux pertes de la clientèle. (voir illustration)&lt;/p>
+&lt;p>Étudier le churn pousse à réfléchir parallèlement à plusieurs actions pouvant contribuer à sa réduction et à la maximisation de la valeur de la relation client:&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/data-science/feature-engineering/feature-store/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/data-science/feature-engineering/feature-store/</guid><description>&lt;p>version 19-08-2024&lt;/p>
+&lt;h2 id="feature-store-as-a-system">
+ Feature Store as a System
+ &lt;a class="anchor" href="#feature-store-as-a-system">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>follows a logical flow&lt;/li>
+&lt;li>seperates concerns functionally&lt;/li>
+&lt;li>builds modular-ily&lt;/li>
+&lt;/ul>
+&lt;figure>&lt;img src="https://non-neutralzero.github.io/notebook/notebook/images/docs/datascience/feature-store/feature-store-2024-08-24.svg">
+&lt;/figure>
+
+&lt;h2 id="pipeline-and-code-break-down">
+ Pipeline and code break-down
+ &lt;a class="anchor" href="#pipeline-and-code-break-down">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="data-selection-and-uc-specific-processing">
+ Data Selection and UC-specific processing
+ &lt;a class="anchor" href="#data-selection-and-uc-specific-processing">#&lt;/a>
+&lt;/h3>
+&lt;p>We start by filtering a reference table based on specific conditions aligned with the requirements of the use case. This creates a use case table on which we select and process pivot columns.&lt;/p>
+&lt;blockquote class="book-hint info">
+ &lt;strong>Note:&lt;/strong> This should happen in the processing and modeling modules.
+&lt;/blockquote>
+
+&lt;h3 id="pivot-transformations-and-data-federation">
+ Pivot transformations and Data federation
+ &lt;a class="anchor" href="#pivot-transformations-and-data-federation">#&lt;/a>
+&lt;/h3>
+&lt;p>We select specific columns in order to create transitional tables with the desired pivot columns.&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/data-science/outlier-detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/data-science/outlier-detection/</guid><description>&lt;h2 id="types-of-outliers">
+ Types of outliers
+ &lt;a class="anchor" href="#types-of-outliers">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="with-regards-to-the-distribution">
+ With regards to the distribution
+ &lt;a class="anchor" href="#with-regards-to-the-distribution">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Univariate: can be found when looking at a distribution of values in a single feature space.&lt;/li>
+&lt;li>Multivariate: can be found in a n-dimensional space (of n-features).&lt;/li>
+&lt;/ul>
+&lt;h3 id="with-regards-to-the-environment">
+ With regards to the environment
+ &lt;a class="anchor" href="#with-regards-to-the-environment">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Point outliers: single data points that lay far from the rest of the distribution.&lt;/li>
+&lt;li>Contextual outliers: can be noise in data, such as punctuation symbols when realizing
+text analysis or background noise signal when doing speech recognition.&lt;/li>
+&lt;li>Collective outliers: Collective outliers can be subsets of novelties in data such as a signal
+that may indicate the discovery of new phenomena.&lt;/li>
+&lt;/ul>
+&lt;h2 id="most-common-causes-of-outliers-on-a-data-set">
+ Most common causes of outliers on a data set
+ &lt;a class="anchor" href="#most-common-causes-of-outliers-on-a-data-set">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Data entry errors (human errors)&lt;/li>
+&lt;li>Measurement errors (instrument errors)&lt;/li>
+&lt;li>Experimental errors (data extraction or experiment planning/executing errors)&lt;/li>
+&lt;li>Intentional (dummy outliers made to test detection methods)&lt;/li>
+&lt;li>Data processing errors (data manipulation or data set unintended mutations)&lt;/li>
+&lt;li>Sampling errors (extracting or mixing data from wrong or various sources)&lt;/li>
+&lt;li>Natural (not an error, novelties in data)&lt;/li>
+&lt;/ul>
+&lt;blockquote class="book-hint info">
+ &lt;p>&lt;strong>Hint&lt;/strong>&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/data-science/sna/sna/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/data-science/sna/sna/</guid><description>&lt;figure>&lt;img src="https://non-neutralzero.github.io/notebook/notebook/images/docs/datascience/sna/icons8-0-100.png">
+&lt;/figure></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/deep-learning/logregnn/logregnn/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/deep-learning/logregnn/logregnn/</guid><description>&lt;h1 id="logistic-regression-as-a-neural-network">
+ Logistic Regression as a Neural Network
+ &lt;a class="anchor" href="#logistic-regression-as-a-neural-network">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="architecture">
+ Architecture
+ &lt;a class="anchor" href="#architecture">#&lt;/a>
+&lt;/h2>
+&lt;p>𝐺𝑖𝑣𝑒𝑛 𝑥 , 𝑦̂ = 𝑃(𝑦 = 1|𝑥), where 0 ≤ 𝑦̂ ≤ 1&lt;/p>
+&lt;p>Parameters of logistic regression&lt;/p>
+&lt;ol>
+&lt;li>Input observation,features matrix X&lt;/li>
+&lt;li>Target vector Y&lt;/li>
+&lt;li>Weights w&lt;/li>
+&lt;li>Threshold or bias b&lt;/li>
+&lt;li>Output: 𝑦̂, sigmoid(z) where z = 𝑤 𝑇 *𝑥 + 𝑏&lt;/li>
+&lt;/ol>
+&lt;p>To get the parameters w and b (i.e. learning), we optimize on:&lt;/p>
+&lt;p>𝐽(𝑤, 𝑏) = 1/m (∑ 𝐿(𝑦̂ (𝑖) , 𝑦 (𝑖) ))&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/deep-learning/noprop/noprop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/deep-learning/noprop/noprop/</guid><description>&lt;h1 id="noprop-training-neural-networks-without-back-propagation-or-forward-propagation">
+ NOPROP: TRAINING NEURAL NETWORKS WITHOUT BACK-PROPAGATION OR FORWARD-PROPAGATION
+ &lt;a class="anchor" href="#noprop-training-neural-networks-without-back-propagation-or-forward-propagation">#&lt;/a>
+&lt;/h1>
+&lt;p>Qinyu Li, Yee Whye Teh, Razvan Pascanu &lt;a href="https://arxiv.org/pdf/2503.24322">(arxiv)&lt;/a> &lt;!-- raw HTML omitted -->arxiv&lt;!-- raw HTML omitted -->&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/machine-learning/decision-trees/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/machine-learning/decision-trees/</guid><description>&lt;h1 id="decision-trees">
+ Decision Trees
+ &lt;a class="anchor" href="#decision-trees">#&lt;/a>
+&lt;/h1>
+&lt;ul>
+&lt;li>On each node, a decision tree asks a question and answers it with yes/no to classify observations under that node.&lt;/li>
+&lt;li>The question could be based on a specific True/False &lt;em>(is obs.feature = something)&lt;/em> question or could be based on numeric data &lt;em>(is obs.feature &amp;gt; 10)&lt;/em>&lt;/li>
+&lt;/ul>
+&lt;p>&lt;img src="https://upload.wikimedia.org/wikipedia/commons/f/ff/Decision_tree_model.png" alt="Decision tree example" />&lt;/p>
+&lt;ul>
+&lt;li>The classification can be categorical or numerical&lt;/li>
+&lt;li>The first node is called the &lt;strong>Root node&lt;/strong>, the nodes in the middle are called &lt;strong>internal nodes&lt;/strong>, and the results are called &lt;strong>leaf nodes&lt;/strong>&lt;/li>
+&lt;/ul></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/machine-learning/explainability-snippets/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/machine-learning/explainability-snippets/</guid><description>&lt;p>version 2018&lt;/p>
+&lt;h3 id="why-model-interpretation">
+ Why Model interpretation?
+ &lt;a class="anchor" href="#why-model-interpretation">#&lt;/a>
+&lt;/h3>
+&lt;p>Understanding how a model makes decisions — model interpretation — has been on the front burner since the end of 2017. Decision support systems and models they are based on don’t explain which features influenced their decisions were known as black boxes.
+Model interpretability is not only important for companies that need to fulfill legal obligations to customers. It serves a technical purpose as well. Every ML model considers input features (problem properties) to predict results (outputs). The more relevant features we create and use to train an ML model during feature engineering, the more accurate results we can get and the simpler our model is. That’s why the ability to understand how the model makes predictions is crucial for its debugging.
+&lt;a href="https://www.kdnuggets.com/2019/02/ai-data-science-advances-trends.html">source&lt;/a>&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/machine-learning/random-forests/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/machine-learning/random-forests/</guid><description>&lt;h1 id="random-forest">
+ Random Forest
+ &lt;a class="anchor" href="#random-forest">#&lt;/a>
+&lt;/h1>
+&lt;p>Random forests are built from decision trees&lt;/p>
+&lt;ol>
+&lt;li>Initially, the original data is bootstrapped by randomly sampling the data and creating a new dataset with the same size as the original one (to be able to do that, duplicated obs are allowed - aka random sampling with replacement)&lt;/li>
+&lt;li>Build a decision tree based on the bootsrapped data&lt;/li>
+&lt;li>Randomly select features (typically sqrt(n_features)) from the bootsrapped data when splitting nodes (this is called random subspace method)&lt;/li>
+&lt;li>Go back to step 1 and repeat&lt;/li>
+&lt;/ol>
+&lt;!-- raw HTML omitted -->
+&lt;ul>
+&lt;li>&lt;em>&lt;strong>does all the original data end up in the sampled subsets?&lt;/strong>&lt;/em> For each created Decision Tree, the non-bootsrapped data is called &lt;strong>Out-of-Bag&lt;/strong> data.&lt;/li>
+&lt;li>&lt;em>&lt;strong>once we get the forest, how do we use it?&lt;/strong>&lt;/em> if we want to get a prediction, we run an obs through all the trees of the forest and pick the prediction with the most votes. (this process is called &lt;strong>Bagging&lt;/strong>, i.e. &lt;strong>B&lt;/strong>ootsrapping + &lt;strong>agg&lt;/strong>regating single predictions)&lt;/li>
+&lt;li>&lt;em>&lt;strong>how do we evaluate the random forest?&lt;/strong>&lt;/em> we can evaluate it using the out-of-bag error, i.e. measure how accurate the forest predicts out-of-bag data.&lt;/li>
+&lt;li>&lt;em>&lt;strong>is there an optimal number of features for each bootsrapped sample?&lt;/strong>&lt;/em> Yes. Given that we can measure the out-of-bag error, we can use it to compare forests built on different samples of features and select the one with the smallest error.&lt;/li>
+&lt;li>&lt;em>&lt;strong>how many times should we repeat this processes?&lt;/strong>&lt;/em> plot OOB error rate vs. number of trees&lt;/li>
+&lt;li>&lt;em>&lt;strong>Why are they called random forests?&lt;/strong>&lt;/em> Because of the random sampling concept at step 1 and at step 3&lt;/li>
+&lt;li>&lt;em>&lt;strong>how is a forest better than one decision tree?&lt;/strong>&lt;/em> By getting a large number of different (high variance ) trees&lt;/li>
+&lt;/ul>
+&lt;p>For more, see Chapter 15 in &lt;a href="https://web.stanford.edu/~hastie/Papers/ESLII.pdf">https://web.stanford.edu/~hastie/Papers/ESLII.pdf&lt;/a>&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/machine-learning/svm/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/machine-learning/svm/</guid><description>&lt;h1 id="svm">
+ SVM
+ &lt;a class="anchor" href="#svm">#&lt;/a>
+&lt;/h1>
+&lt;ul>
+&lt;li>P: &lt;em>&lt;strong>We want to figure out a way to separate data into classes&lt;/strong>&lt;/em>&lt;/li>
+&lt;li>S: A linear classifier can help. Its objective would be to divide data using a hyperplane, and since the data points, from each class, that are closer to the classifier will be helping us decide on the orientation and position of the classifier, we can give them a fancy name (Support vectors) and call our linear classifier, the Support Vector Classifier.&lt;/li>
+&lt;li>P: &lt;em>&lt;strong>But, If the data is &amp;ldquo;clearly&amp;rdquo; separable, then we won&amp;rsquo;t have one classifier - we would actually end up with so many possibilities to choosing one hyperplane AND we have to make sure future predictions are more likely to be correctly classified&lt;/strong>&lt;/em>&lt;/li>
+&lt;li>S: We could choose the one that insures the maximum distance between the Support vectors of the two classes (we&amp;rsquo;ll call it a &lt;strong>maximum margin classifier&lt;/strong>.) That way, we&amp;rsquo;ll seperate the existing data, and have more confidence in classifying future data points.&lt;/li>
+&lt;li>P: &lt;em>&lt;strong>We&amp;rsquo;ll be looking to maximize the margin between the data points and the hyperplane, how do we do that?&lt;/strong>&lt;/em>&lt;/li>
+&lt;li>S: Hinge Loss!&lt;/li>
+&lt;li>P: &lt;em>&lt;strong>Overfitting, this type of classifier would be very sensitive to outliers for example&lt;/strong>&lt;/em>&lt;/li>
+&lt;li>S: Explorative data analysis, outliers analysis or allow misclassification (soft margin). o&lt;/li>
+&lt;/ul></description></item></channel></rss>

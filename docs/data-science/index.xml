@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Digital Notebook NonNeutralZero</title><link>https://non-neutralzero.github.io/notebook/docs/data-science/</link><description>Recent content on Digital Notebook NonNeutralZero</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://non-neutralzero.github.io/notebook/docs/data-science/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://non-neutralzero.github.io/notebook/docs/data-science/churn/churn-problem-framing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/data-science/churn/churn-problem-framing/</guid><description>&lt;h1 id="churn---problem-framing">
+ Churn - Problem Framing
+ &lt;a class="anchor" href="#churn---problem-framing">#&lt;/a>
+&lt;/h1>
+&lt;h2 id="churn-reporting">
+ Churn reporting
+ &lt;a class="anchor" href="#churn-reporting">#&lt;/a>
+&lt;/h2>
+&lt;ol>
+&lt;li>
+&lt;p>What happened? (Inactive point of view)&lt;/p>
+&lt;ul>
+&lt;li>In general cohorts work good here: start with a small population of churners and follow them over time&lt;/li>
+&lt;li>Clustering churners based on project and modeling bottom line&lt;/li>
+&lt;li>Example of small population of churners =&amp;gt; “Churners who generate more profits, churns who explicitly expressed their insatisfaction”: or choose another prioritization criterion&lt;/li>
+&lt;li>Monetary retention rates (monetary churn)&lt;/li>
+&lt;li>Reversed cohorts: start with the churn date (Month / Year) and follow the churners retrospectively&lt;/li>
+&lt;li>Product / offers / segments cohorts&lt;/li>
+&lt;li>Maybe change of nomenclature/perspective to make problem framing more accessible to other shareholders (Product Churn, Account Churn, Usage Churn&amp;hellip;etc)&lt;/li>
+&lt;/ul>
+&lt;/li>
+&lt;li>
+&lt;p>Why did it happen?&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/data-science/churn/churn/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/data-science/churn/churn/</guid><description>&lt;p>version du 25-12-2018&lt;/p>
+&lt;h2 id="gestion-de-lattrition-ou-churn-management">
+ Gestion de l&amp;rsquo;attrition ou Churn management
+ &lt;a class="anchor" href="#gestion-de-lattrition-ou-churn-management">#&lt;/a>
+&lt;/h2>
+&lt;p>Le churn est un anglicisme qui désigne la perte des clients. La gestion du churn figure parmi les
+piliers les plus importants à tenir en compte lors de la gestion de fidélisation, car l’acquisition à elle
+seule ne peut pallier aux pertes de la clientèle. (voir illustration)&lt;/p>
+&lt;p>Étudier le churn pousse à réfléchir parallèlement à plusieurs actions pouvant contribuer à sa réduction et à la maximisation de la valeur de la relation client:&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/data-science/feature-engineering/feature-store/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/data-science/feature-engineering/feature-store/</guid><description>&lt;p>version 19-08-2024&lt;/p>
+&lt;h2 id="feature-store-as-a-system">
+ Feature Store as a System
+ &lt;a class="anchor" href="#feature-store-as-a-system">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>follows a logical flow&lt;/li>
+&lt;li>seperates concerns functionally&lt;/li>
+&lt;li>builds modular-ily&lt;/li>
+&lt;/ul>
+&lt;figure>&lt;img src="https://non-neutralzero.github.io/notebook/notebook/images/docs/datascience/feature-store/feature-store-2024-08-24.svg">
+&lt;/figure>
+
+&lt;h2 id="pipeline-and-code-break-down">
+ Pipeline and code break-down
+ &lt;a class="anchor" href="#pipeline-and-code-break-down">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="data-selection-and-uc-specific-processing">
+ Data Selection and UC-specific processing
+ &lt;a class="anchor" href="#data-selection-and-uc-specific-processing">#&lt;/a>
+&lt;/h3>
+&lt;p>We start by filtering a reference table based on specific conditions aligned with the requirements of the use case. This creates a use case table on which we select and process pivot columns.&lt;/p>
+&lt;blockquote class="book-hint info">
+ &lt;strong>Note:&lt;/strong> This should happen in the processing and modeling modules.
+&lt;/blockquote>
+
+&lt;h3 id="pivot-transformations-and-data-federation">
+ Pivot transformations and Data federation
+ &lt;a class="anchor" href="#pivot-transformations-and-data-federation">#&lt;/a>
+&lt;/h3>
+&lt;p>We select specific columns in order to create transitional tables with the desired pivot columns.&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/data-science/outlier-detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/data-science/outlier-detection/</guid><description>&lt;h2 id="types-of-outliers">
+ Types of outliers
+ &lt;a class="anchor" href="#types-of-outliers">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="with-regards-to-the-distribution">
+ With regards to the distribution
+ &lt;a class="anchor" href="#with-regards-to-the-distribution">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Univariate: can be found when looking at a distribution of values in a single feature space.&lt;/li>
+&lt;li>Multivariate: can be found in a n-dimensional space (of n-features).&lt;/li>
+&lt;/ul>
+&lt;h3 id="with-regards-to-the-environment">
+ With regards to the environment
+ &lt;a class="anchor" href="#with-regards-to-the-environment">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>Point outliers: single data points that lay far from the rest of the distribution.&lt;/li>
+&lt;li>Contextual outliers: can be noise in data, such as punctuation symbols when realizing
+text analysis or background noise signal when doing speech recognition.&lt;/li>
+&lt;li>Collective outliers: Collective outliers can be subsets of novelties in data such as a signal
+that may indicate the discovery of new phenomena.&lt;/li>
+&lt;/ul>
+&lt;h2 id="most-common-causes-of-outliers-on-a-data-set">
+ Most common causes of outliers on a data set
+ &lt;a class="anchor" href="#most-common-causes-of-outliers-on-a-data-set">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Data entry errors (human errors)&lt;/li>
+&lt;li>Measurement errors (instrument errors)&lt;/li>
+&lt;li>Experimental errors (data extraction or experiment planning/executing errors)&lt;/li>
+&lt;li>Intentional (dummy outliers made to test detection methods)&lt;/li>
+&lt;li>Data processing errors (data manipulation or data set unintended mutations)&lt;/li>
+&lt;li>Sampling errors (extracting or mixing data from wrong or various sources)&lt;/li>
+&lt;li>Natural (not an error, novelties in data)&lt;/li>
+&lt;/ul>
+&lt;blockquote class="book-hint info">
+ &lt;p>&lt;strong>Hint&lt;/strong>&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/data-science/sna/sna/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/data-science/sna/sna/</guid><description>&lt;figure>&lt;img src="https://non-neutralzero.github.io/notebook/notebook/images/docs/datascience/sna/icons8-0-100.png">
+&lt;/figure></description></item></channel></rss>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Shell on Digital Notebook NonNeutralZero</title><link>https://non-neutralzero.github.io/notebook/tags/shell/</link><description>Recent content in Shell on Digital Notebook NonNeutralZero</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 20 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://non-neutralzero.github.io/notebook/tags/shell/index.xml" rel="self" type="application/rss+xml"/><item><title>Git commands I often use</title><link>https://non-neutralzero.github.io/notebook/posts/git-commands/</link><pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/git-commands/</guid><description>&lt;h2 id="add">
+ Add
+ &lt;a class="anchor" href="#add">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># only add files with .scala extension&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git ls-files &lt;span style="color:#81a1c1">[&lt;/span>path&lt;span style="color:#81a1c1">]&lt;/span> &lt;span style="color:#eceff4">|&lt;/span> grep &lt;span style="color:#a3be8c">&amp;#39;\.scala$&amp;#39;&lt;/span> &lt;span style="color:#eceff4">|&lt;/span> xargs git add
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git stash --keep-index
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item></channel></rss>

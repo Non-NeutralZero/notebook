@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hql on Digital Notebook NonNeutralZero</title><link>https://non-neutralzero.github.io/notebook/tags/hql/</link><description>Recent content in Hql on Digital Notebook NonNeutralZero</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 02 Apr 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://non-neutralzero.github.io/notebook/tags/hql/index.xml" rel="self" type="application/rss+xml"/><item><title>Hive</title><link>https://non-neutralzero.github.io/notebook/posts/hive/</link><pubDate>Mon, 02 Apr 2018 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/hive/</guid><description>&lt;h2 id="snippets">
+ Snippets
+ &lt;a class="anchor" href="#snippets">#&lt;/a>
+&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sql" data-lang="sql">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">-- set identifiers to none for the query below to work and 
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">-- set it back to column once it&amp;#39;s done
+&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">&lt;/span>&lt;span style="color:#81a1c1;font-weight:bold">set&lt;/span> hive&lt;span style="color:#eceff4">.&lt;/span>support&lt;span style="color:#eceff4">.&lt;/span>quoted&lt;span style="color:#eceff4">.&lt;/span>identifiers &lt;span style="color:#81a1c1">=&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">none&lt;/span>&lt;span style="color:#eceff4">;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="hive-3">
+ HIVE 3
+ &lt;a class="anchor" href="#hive-3">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>BI Code typically use &lt;code>db.table&lt;/code> - needs to change to &lt;code>db&lt;/code>.&lt;code>table&lt;/code>&lt;/li>
+&lt;li>Default path : /warehouse/tablespace/external/hive/default.db/test_table&lt;/li>
+&lt;/ul>
+&lt;h2 id="resources--useful-links">
+ Resources &amp;amp; Useful Links
+ &lt;a class="anchor" href="#resources--useful-links">#&lt;/a>
+&lt;/h2>
+&lt;p>&lt;a href="https://cwiki.apache.org/confluence/display/Hive/Hive&amp;#43;Transactions">ACID + HIVE&lt;/a>&lt;/p></description></item></channel></rss>

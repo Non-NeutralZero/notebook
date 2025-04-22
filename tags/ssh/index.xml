@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ssh on Digital Notebook NonNeutralZero</title><link>https://non-neutralzero.github.io/notebook/tags/ssh/</link><description>Recent content in Ssh on Digital Notebook NonNeutralZero</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 17 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://non-neutralzero.github.io/notebook/tags/ssh/index.xml" rel="self" type="application/rss+xml"/><item><title>VS Code Configuration &amp; Set-up</title><link>https://non-neutralzero.github.io/notebook/posts/vscode/</link><pubDate>Fri, 17 Nov 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/vscode/</guid><description>&lt;h2 id="configuration">
+ Configuration
+ &lt;a class="anchor" href="#configuration">#&lt;/a>
+&lt;/h2>
+&lt;h3 id="remote-ssh">
+ Remote SSH
+ &lt;a class="anchor" href="#remote-ssh">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>Host machine
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Hostname machine.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> User user_name
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> IdentityFile path/to/ssh/key
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h3 id="remote-ssh---ssh-tunnel">
+ Remote SSH - SSH Tunnel
+ &lt;a class="anchor" href="#remote-ssh---ssh-tunnel">#&lt;/a>
+&lt;/h3>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>Host tunnel_machine
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Hostname machine.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> User user_name
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> IdentityFile path/to/ssh/key
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>Host machine_after_tunnel
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Hostname machine_after_tunnel.com
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> User user_name
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> IdentityFile path/to/ssh/key
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ForwardAgent yes
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ProxyJump tunnel_machine
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="pc-configuration">
+ PC Configuration
+ &lt;a class="anchor" href="#pc-configuration">#&lt;/a>
+&lt;/h2>
+&lt;p>Authorize your windows local machine to connect to remote machine.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-powershell" data-lang="powershell">&lt;span style="display:flex;">&lt;span>$USER_AT_HOST&lt;span style="color:#eceff4">=&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;your-user-name-on-host@hostname&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$PUBKEYPATH&lt;span style="color:#eceff4">=&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;&lt;/span>$HOME&lt;span style="color:#a3be8c">\.ssh\id_ed25519.pub&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>$pubKey&lt;span style="color:#eceff4">=(&lt;/span>&lt;span style="color:#81a1c1">Get-Content&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;&lt;/span>$PUBKEYPATH&lt;span style="color:#a3be8c">&amp;#34;&lt;/span> &lt;span style="color:#eceff4">|&lt;/span> &lt;span style="color:#81a1c1">Out-String&lt;/span>&lt;span style="color:#eceff4">);&lt;/span> ssh &lt;span style="color:#a3be8c">&amp;#34;&lt;/span>$USER_AT_HOST&lt;span style="color:#a3be8c">&amp;#34;&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;mkdir -p ~/.ssh &amp;amp;&amp;amp; chmod 700 ~/.ssh &amp;amp;&amp;amp; echo &amp;#39;&lt;/span>${pubKey}&lt;span style="color:#a3be8c">&amp;#39; &amp;gt;&amp;gt; ~/.ssh/authorized_keys &amp;amp;&amp;amp; chmod 600 ~/.ssh/authorized_keys&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Verify that the &lt;em>&lt;strong>authorized_keys&lt;/strong>&lt;/em> file in the &lt;em>&lt;strong>.ssh&lt;/strong>&lt;/em> folder for your remote user on the SSH host is owned by you and no other user has permission to access it.&lt;/p></description></item></channel></rss>

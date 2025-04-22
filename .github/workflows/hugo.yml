@@ -20,7 +20,7 @@ jobs:
           hugo-version: 'latest'
           extended: true
 
-      - name: Build
+      - name: Run Hugo
         run: hugo --minify
 
      # - name: Deploy to GitHub Pages

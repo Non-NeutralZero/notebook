@@ -16,8 +16,9 @@
 &lt;li>Output: 𝑦̂, sigmoid(z) where z = 𝑤 𝑇 *𝑥 + 𝑏&lt;/li>
 &lt;/ol>
 &lt;p>To get the parameters w and b (i.e. learning), we optimize on:&lt;/p>
-&lt;p>𝐽(𝑤, 𝑏) = 1/m (∑ 𝐿(𝑦̂ (𝑖) , 𝑦 (𝑖) ))&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/deep-learning/noprop/noprop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/deep-learning/noprop/noprop/</guid><description>&lt;h1 id="noprop-training-neural-networks-without-back-propagation-or-forward-propagation">
- NOPROP: TRAINING NEURAL NETWORKS WITHOUT BACK-PROPAGATION OR FORWARD-PROPAGATION
- &lt;a class="anchor" href="#noprop-training-neural-networks-without-back-propagation-or-forward-propagation">#&lt;/a>
+&lt;p>𝐽(𝑤, 𝑏) = 1/m (∑ 𝐿(𝑦̂ (𝑖) , 𝑦 (𝑖) ))&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/deep-learning/noprop/noprop/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/deep-learning/noprop/noprop/</guid><description>&lt;h1 id="noprop">
+ NOPROP
+ &lt;a class="anchor" href="#noprop">#&lt;/a>
 &lt;/h1>
+&lt;p>NOPROP: TRAINING NEURAL NETWORKS WITHOUT BACK-PROPAGATION OR FORWARD-PROPAGATION&lt;/p>
 &lt;p>Qinyu Li, Yee Whye Teh, Razvan Pascanu &lt;a href="https://arxiv.org/pdf/2503.24322">(arxiv)&lt;/a> &lt;!-- raw HTML omitted -->arxiv&lt;!-- raw HTML omitted -->&lt;/p></description></item></channel></rss>

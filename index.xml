@@ -353,7 +353,15 @@ rapport aux conditions dans lesquelles le code a été généré et à ses objec
  Resources &amp;amp; Useful Links
  &lt;a class="anchor" href="#resources--useful-links">#&lt;/a>
 &lt;/h2>
-&lt;p>&lt;a href="https://cwiki.apache.org/confluence/display/Hive/Hive&amp;#43;Transactions">ACID + HIVE&lt;/a>&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/data-science/churn/churn-problem-framing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/data-science/churn/churn-problem-framing/</guid><description>&lt;h1 id="churn---problem-framing">
+&lt;p>&lt;a href="https://cwiki.apache.org/confluence/display/Hive/Hive&amp;#43;Transactions">ACID + HIVE&lt;/a>&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/data-science/churn/churn-management/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/data-science/churn/churn-management/</guid><description>&lt;p>version du 25-12-2018&lt;/p>
+&lt;h2 id="gestion-de-lattrition-ou-churn-management">
+ Gestion de l&amp;rsquo;attrition ou Churn management
+ &lt;a class="anchor" href="#gestion-de-lattrition-ou-churn-management">#&lt;/a>
+&lt;/h2>
+&lt;p>Le churn est un anglicisme qui désigne la perte des clients. La gestion du churn figure parmi les
+piliers les plus importants à tenir en compte lors de la gestion de fidélisation, car l’acquisition à elle
+seule ne peut pallier aux pertes de la clientèle. (voir illustration)&lt;/p>
+&lt;p>Étudier le churn pousse à réfléchir parallèlement à plusieurs actions pouvant contribuer à sa réduction et à la maximisation de la valeur de la relation client:&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/data-science/churn/churn-problem-framing/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/data-science/churn/churn-problem-framing/</guid><description>&lt;h1 id="churn---problem-framing">
  Churn - Problem Framing
  &lt;a class="anchor" href="#churn---problem-framing">#&lt;/a>
 &lt;/h1>
@@ -375,15 +383,7 @@ rapport aux conditions dans lesquelles le code a été généré et à ses objec
 &lt;/ul>
 &lt;/li>
 &lt;li>
-&lt;p>Why did it happen?&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/data-science/churn/churn/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/data-science/churn/churn/</guid><description>&lt;p>version du 25-12-2018&lt;/p>
-&lt;h2 id="gestion-de-lattrition-ou-churn-management">
- Gestion de l&amp;rsquo;attrition ou Churn management
- &lt;a class="anchor" href="#gestion-de-lattrition-ou-churn-management">#&lt;/a>
-&lt;/h2>
-&lt;p>Le churn est un anglicisme qui désigne la perte des clients. La gestion du churn figure parmi les
-piliers les plus importants à tenir en compte lors de la gestion de fidélisation, car l’acquisition à elle
-seule ne peut pallier aux pertes de la clientèle. (voir illustration)&lt;/p>
-&lt;p>Étudier le churn pousse à réfléchir parallèlement à plusieurs actions pouvant contribuer à sa réduction et à la maximisation de la valeur de la relation client:&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/data-science/feature-engineering/feature-store/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/data-science/feature-engineering/feature-store/</guid><description>&lt;p>version 19-08-2024&lt;/p>
+&lt;p>Why did it happen?&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/data-science/feature-engineering/feature-store/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/data-science/feature-engineering/feature-store/</guid><description>&lt;p>version 19-08-2024&lt;/p>
 &lt;h2 id="feature-store-as-a-system">
  Feature Store as a System
  &lt;a class="anchor" href="#feature-store-as-a-system">#&lt;/a>

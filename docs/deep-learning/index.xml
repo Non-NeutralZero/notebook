@@ -21,4 +21,5 @@
  &lt;a class="anchor" href="#noprop">#&lt;/a>
 &lt;/h1>
 &lt;p>NOPROP: TRAINING NEURAL NETWORKS WITHOUT BACK-PROPAGATION OR FORWARD-PROPAGATION&lt;/p>
-&lt;p>Qinyu Li, Yee Whye Teh, Razvan Pascanu &lt;a href="https://arxiv.org/pdf/2503.24322">(arxiv)&lt;/a> &lt;!-- raw HTML omitted -->arXiv:2503.24322&lt;!-- raw HTML omitted -->&lt;/p></description></item></channel></rss>
+&lt;p>Qinyu Li, Yee Whye Teh, Razvan Pascanu &lt;a href="https://arxiv.org/pdf/2503.24322">(arxiv)&lt;/a> &lt;!-- raw HTML omitted -->arXiv:2503.24322&lt;!-- raw HTML omitted -->&lt;/p>
+&lt;p>The authors propose NoProp, a completely gradient-free method for training neural networks. Instead of learning via layer gradients, each layer is independently trained to denoise a noisy version of the label. And during inference, the noise is removed layer by layer.&lt;/p></description></item></channel></rss>

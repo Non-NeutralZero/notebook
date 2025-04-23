@@ -475,7 +475,7 @@ that may indicate the discovery of new phenomena.&lt;/li>
 &lt;/h1>
 &lt;p>NOPROP: TRAINING NEURAL NETWORKS WITHOUT BACK-PROPAGATION OR FORWARD-PROPAGATION&lt;/p>
 &lt;p>Qinyu Li, Yee Whye Teh, Razvan Pascanu &lt;a href="https://arxiv.org/pdf/2503.24322">(arxiv)&lt;/a> &lt;!-- raw HTML omitted -->arXiv:2503.24322&lt;!-- raw HTML omitted -->&lt;/p>
-&lt;p>The authors propose NoProp, a completely gradient-free method for training neural networks. Instead of learning via layer gradients, each layer is independently trained to denoise a noisy version of the label. And during inference, the noise is removed layer by layer.&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/machine-learning/decision-trees/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/machine-learning/decision-trees/</guid><description>&lt;h1 id="decision-trees">
+&lt;p>The authors propose NoProp, a completely gradient-free method for training neural networks. No prop does not require back-prop or forwrad prop. Instead of learning via layer gradients, each layer is independently trained to denoise a noisy version of the label. And during inference, the noise is removed layer by layer.&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/machine-learning/decision-trees/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/machine-learning/decision-trees/</guid><description>&lt;h1 id="decision-trees">
  Decision Trees
  &lt;a class="anchor" href="#decision-trees">#&lt;/a>
 &lt;/h1>

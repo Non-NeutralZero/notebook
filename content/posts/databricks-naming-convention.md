@@ -28,7 +28,7 @@ Consistent naming across **env (dev, test, prod)**, **layers (bronze/silver/gold
 
 ## Environment‑Aware Medallion Naming
 
-Unity Catalog is the governance backbone. Inconsistent names break access policies and automation. Use env prefixes, clear domains, and snake\_case ([Unity Catalog docs](https://learn.microsoft.com/azure/databricks/data-governance/unity-catalog/) .
+Unity Catalog is the governance backbone. Inconsistent names break access policies and automation. Use env prefixes, clear domains, and snake\_case. cf. [Unity Catalog docs](https://learn.microsoft.com/azure/databricks/data-governance/unity-catalog/) .
 
 Pattern:
 

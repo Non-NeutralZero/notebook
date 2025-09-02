@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Best-Practices on Digital Notebook NonNeutralZero</title><link>https://non-neutralzero.github.io/notebook/tags/best-practices/</link><description>Recent content in Best-Practices on Digital Notebook NonNeutralZero</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 02 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://non-neutralzero.github.io/notebook/tags/best-practices/index.xml" rel="self" type="application/rss+xml"/><item><title>Databricks Naming Conventions</title><link>https://non-neutralzero.github.io/notebook/posts/databricks-naming-convention/</link><pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/databricks-naming-convention/</guid><description>&lt;h2 id="introduction">
+ Introduction
+ &lt;a class="anchor" href="#introduction">#&lt;/a>
+&lt;/h2>
+&lt;p>Consistent naming across &lt;strong>env (dev, test, prod)&lt;/strong>, &lt;strong>layers (bronze/silver/gold)&lt;/strong>, and &lt;strong>domains&lt;/strong> is critical in Databricks. It prevents confusion, enforces governance, and supports automation with Unity Catalog and Delta Lake.&lt;/p>
+&lt;hr>
+&lt;h2 id="general-best-practices">
+ General Best Practices
+ &lt;a class="anchor" href="#general-best-practices">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>Separate dev / test / prod workspaces.&lt;/li>
+&lt;li>Apply RBAC + Unity Catalog.&lt;/li>
+&lt;li>Use modular notebooks; reuse with &lt;code>%run&lt;/code>.&lt;/li>
+&lt;li>Version control all code.&lt;/li>
+&lt;li>Prefer job clusters; auto-terminate.&lt;/li>
+&lt;li>Vacuum Delta tables; use optimize + z-order.&lt;/li>
+&lt;li>Allow schema evolution only when intentional.&lt;/li>
+&lt;/ul>
+&lt;hr>
+&lt;h2 id="environmentaware-medallion-naming">
+ Environment‑Aware Medallion Naming
+ &lt;a class="anchor" href="#environmentaware-medallion-naming">#&lt;/a>
+&lt;/h2>
+&lt;p>Unity Catalog is the governance backbone. Inconsistent names break access policies and automation. Use env prefixes, clear domains, and snake_case (&lt;a href="https://learn.microsoft.com/azure/databricks/data-governance/unity-catalog/">Unity Catalog docs&lt;/a> .&lt;/p></description></item></channel></rss>

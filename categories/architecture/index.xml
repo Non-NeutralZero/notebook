@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Architecture on Digital Notebook NonNeutralZero</title><link>https://non-neutralzero.github.io/notebook/categories/architecture/</link><description>Recent content in Architecture on Digital Notebook NonNeutralZero</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 02 Sep 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://non-neutralzero.github.io/notebook/categories/architecture/index.xml" rel="self" type="application/rss+xml"/><item><title>Databricks and OOP, do they match ?</title><link>https://non-neutralzero.github.io/notebook/posts/databricks-vs-oop/</link><pubDate>Tue, 02 Sep 2025 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/databricks-vs-oop/</guid><description>&lt;h2 id="context">
+ Context
+ &lt;a class="anchor" href="#context">#&lt;/a>
+&lt;/h2>
+&lt;p>Databricks and Apache Spark are often used in data engineering, data science, and machine learning workflows. Their APIs are designed around &lt;strong>distributed data processing&lt;/strong> (RDDs, DataFrames, Datasets). The question arises: &lt;em>does Object-Oriented Programming (OOP) fit into this paradigm, or do we need a different style?&lt;/em>&lt;/p>
+&lt;hr>
+&lt;h2 id="databricks-programming-model-vs-oop">
+ Databricks Programming Model vs OOP
+ &lt;a class="anchor" href="#databricks-programming-model-vs-oop">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>&lt;strong>Spark API&lt;/strong>: functional and declarative. You express transformations (&lt;code>map&lt;/code>, &lt;code>filter&lt;/code>, &lt;code>select&lt;/code>) on immutable distributed datasets.&lt;/li>
+&lt;li>&lt;strong>OOP style&lt;/strong>: encapsulates data + behaviour inside classes, often with mutable state.&lt;/li>
+&lt;/ul>
+&lt;h3 id="where-they-match">
+ Where They Match
+ &lt;a class="anchor" href="#where-they-match">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Encapsulation of business logic&lt;/strong>: Wrapping Spark transformations inside reusable classes (e.g., &lt;code>DataCleaner&lt;/code>, &lt;code>FeatureEngineer&lt;/code>) helps modularize pipelines.&lt;/li>
+&lt;li>&lt;strong>Abstractions for teams&lt;/strong>: Teams can expose high-level methods (&lt;code>.transform(df)&lt;/code>) instead of low-level Spark calls.&lt;/li>
+&lt;li>&lt;strong>Testing &amp;amp; reusability&lt;/strong>: OOP structures allow dependency injection, mock data, and unit testing.&lt;/li>
+&lt;/ul>
+&lt;h3 id="where-they-clash">
+ Where They Clash
+ &lt;a class="anchor" href="#where-they-clash">#&lt;/a>
+&lt;/h3>
+&lt;ul>
+&lt;li>&lt;strong>Statefulness&lt;/strong>: Spark’s lazy evaluation and immutable DataFrames do not align with mutable OOP state.&lt;/li>
+&lt;li>&lt;strong>Serialization&lt;/strong>: Classes with methods that capture external state may not serialize well when Spark ships code to executors.&lt;/li>
+&lt;li>&lt;strong>Functional preference&lt;/strong>: Many Spark best practices push towards functional patterns (pure functions, stateless transformations).&lt;/li>
+&lt;/ul>
+&lt;p>Note on statefulness: In &lt;em>Learning Spark&lt;/em>, Holden Karau makes distinction between stateless and stateful processing and emphazizes it. Stateless transformations are preferred, but spark also provides patterns for stateful processing, particularly in streaming contexts. e.g., &lt;code>updateStateByKey&lt;/code>, windowing, watermarking, and event-time state management.&lt;/p></description></item></channel></rss>

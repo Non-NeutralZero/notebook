@@ -109,3 +109,4 @@ Expose composable, stateless APIs. for example see design in design in the [spar
 - [spark-feature-engineering-toolkit](https://github.com/Non-NeutralZero/spark-feature-engineering-toolkit) – Example APIs for composable, stateless feature engineering.
 
 - com.holdenkarau/spark-testing-base – Library for testing Spark applications.
+- https://www.reddit.com/r/databricks/comments/1n49ybf/oops_concepts_with_pyspark/

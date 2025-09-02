@@ -22,4 +22,4 @@
  Environment‑Aware Medallion Naming
  &lt;a class="anchor" href="#environmentaware-medallion-naming">#&lt;/a>
 &lt;/h2>
-&lt;p>Unity Catalog is the governance backbone. Inconsistent names break access policies and automation. Use env prefixes, clear domains, and snake_case (&lt;a href="https://learn.microsoft.com/azure/databricks/data-governance/unity-catalog/">Unity Catalog docs&lt;/a> .&lt;/p></description></item></channel></rss>
+&lt;p>Unity Catalog is the governance backbone. Inconsistent names break access policies and automation. Use env prefixes, clear domains, and snake_case. cf. &lt;a href="https://learn.microsoft.com/azure/databricks/data-governance/unity-catalog/">Unity Catalog docs&lt;/a> .&lt;/p></description></item></channel></rss>

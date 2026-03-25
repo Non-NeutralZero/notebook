@@ -6,4 +6,4 @@ weight: 1
 
 # Data Science
 
-{{<section summary >}}
+{{<section>}}

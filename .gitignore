@@ -57,6 +57,16 @@ resources/_gen
 ehthumbs.db
 Thumbs.db
 
+# macOS
+.AppleDouble
+.LSOverride
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+Icon\r
+
 # ignore node modules folders utilized by npm
 **/node_modules
 

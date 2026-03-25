@@ -8,11 +8,14 @@
     {{ $filtered := where $pages "Params.categories" "intersect" (slice $cat) }}
     {{ if $filtered }}
       <h3>{{ $cat }}</h3>
-      <ul>
+      <table>
         {{ range sort $filtered "Date" "desc" }}
-          <li>{{ .Date.Format "Jan 2, 2006" }} &nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+          <tr>
+            <td>{{ .Date.Format "Jan 2, 2006" }}</td>
+            <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
+          </tr>
         {{ end }}
-      </ul>
+      </table>
     {{ end }}
   {{ end }}
 {{ end }}

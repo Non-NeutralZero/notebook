@@ -11,7 +11,7 @@
       <table>
         {{ range sort $filtered "Date" "desc" }}
           <tr>
-            <td>{{ .Date.Format "Jan 2, 2006" }}</td>
+            <td style="padding-right: 2rem">{{ .Date.Format "Jan 2, 2006" }}</td>
             <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
           </tr>
         {{ end }}

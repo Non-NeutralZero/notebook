@@ -91,7 +91,60 @@
 &lt;/ul></description></item><item><title>Git commands I often use</title><link>https://non-neutralzero.github.io/notebook/posts/git-commands/</link><pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/git-commands/</guid><description>&lt;h2 id="add">Add&lt;a class="anchor" href="#add">#&lt;/a>&lt;/h2>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># only add files with .scala extension&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git ls-files &lt;span style="color:#81a1c1">[&lt;/span>path&lt;span style="color:#81a1c1">]&lt;/span> &lt;span style="color:#eceff4">|&lt;/span> grep &lt;span style="color:#a3be8c">&amp;#39;\.scala$&amp;#39;&lt;/span> &lt;span style="color:#eceff4">|&lt;/span> xargs git add
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git stash --keep-index&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>How to document your code?</title><link>https://non-neutralzero.github.io/notebook/posts/code-documentation-scala/</link><pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/code-documentation-scala/</guid><description>&lt;h2 id="comment-documenter-">Comment documenter ?&lt;a class="anchor" href="#comment-documenter-">#&lt;/a>&lt;/h2>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git stash --keep-index&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="log--history">Log &amp;amp; History&lt;a class="anchor" href="#log--history">#&lt;/a>&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># compact, visual branch graph&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git log --oneline --graph --decorate --all
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># search commits by message&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git log --grep&lt;span style="color:#81a1c1">=&lt;/span>&lt;span style="color:#a3be8c">&amp;#34;keyword&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># show changes introduced by each commit&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git log -p --follow -- path/to/file
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># who changed what line&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git blame -L 10,20 file.txt&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="diff">Diff&lt;a class="anchor" href="#diff">#&lt;/a>&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># diff staged changes (what&amp;#39;s about to be committed)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git diff --staged
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># diff between two branches&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git diff main..feature-branch&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="undo--fix">Undo / Fix&lt;a class="anchor" href="#undo--fix">#&lt;/a>&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># undo last commit but keep changes staged&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git reset --soft HEAD~1
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># amend last commit (message or content)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git commit --amend --no-edit
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># discard changes in a file&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git checkout -- file.txt
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># recover a dropped stash or deleted commit&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git reflog&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="branches">Branches&lt;a class="anchor" href="#branches">#&lt;/a>&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># delete remote branch&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git push origin --delete branch-name
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># rename current branch&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git branch -m new-name
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># show which branch a commit is in&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git branch --contains &amp;lt;commit-hash&amp;gt;&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="stash">Stash&lt;a class="anchor" href="#stash">#&lt;/a>&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># stash with a name&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git stash push -m &lt;span style="color:#a3be8c">&amp;#34;wip: auth refactor&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># apply specific stash&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git stash apply stash@&lt;span style="color:#81a1c1">{&lt;/span>2&lt;span style="color:#81a1c1">}&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># list stashes&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git stash list&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="productivity">Productivity&lt;a class="anchor" href="#productivity">#&lt;/a>&lt;/h2>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># find which commit introduced a bug (binary search)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git bisect start
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git bisect bad &lt;span style="color:#616e87;font-style:italic"># current is broken&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git bisect good v1.0 &lt;span style="color:#616e87;font-style:italic"># last known good&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># apply a single commit from another branch&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git cherry-pick &amp;lt;commit-hash&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic"># rebase interactively (squash, reorder, edit)&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>git rebase -i HEAD~3&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div></description></item><item><title>How to document your code?</title><link>https://non-neutralzero.github.io/notebook/posts/code-documentation-scala/</link><pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/code-documentation-scala/</guid><description>&lt;h2 id="comment-documenter-">Comment documenter ?&lt;a class="anchor" href="#comment-documenter-">#&lt;/a>&lt;/h2>
 &lt;p>Les mêmes principes et critères d’un bon code devraient s’appliquer à la documentation:&lt;/p>
 &lt;ul>
 &lt;li>Conventionnelle&lt;/li>

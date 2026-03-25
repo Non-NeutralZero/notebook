@@ -27,10 +27,12 @@ pygmentsStyle = "nord"
 
 [params]
   BookTheme = 'light'
-  BookRepo = 'https://non-neutralzero.github.io/notebook'
+  BookRepo = 'https://github.com/Non-NeutralZero/notebook'
   BookSection = 'docs'
   BookCommitPath = 'commit'
+  BookSearch = true
+  BookDateFormat = "Jan 2, 2006"
 
 [params.extra]
-copyright = "© 2023. NonNeutralZero."
+copyright = "© 2026. NonNeutralZero."
 poweredby = true

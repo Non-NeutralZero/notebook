@@ -2,13 +2,11 @@
 title = "Building a website using Hugo and Hosting it on GitHub Pages"
 description = ""
 tags = [
-    "markdown",
-    "development",
+    "hugo",
 ]
 date = "2023-10-26"
 categories = [
-    "Development",
-    "Tutorials",
+    "setup",
 ]
 menu = "main"
 parent = "tutorials"

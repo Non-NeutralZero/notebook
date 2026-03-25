@@ -1,0 +1,22 @@
+{{ define "main" }}
+  <h1>{{ .Title }}</h1>
+  <hr />
+
+  {{ $pages := .Pages }}
+  {{ range slice "reference" "setup" "concept" }}
+    {{ $cat := . }}
+    {{ $filtered := where $pages "Params.categories" "intersect" (slice $cat) }}
+    {{ if $filtered }}
+      <h3>{{ $cat }}</h3>
+      <ul>
+        {{ range sort $filtered "Date" "desc" }}
+          <li>{{ .Date.Format "Jan 2, 2006" }} &nbsp; <a href="{{ .RelPermalink }}">{{ .Title }}</a></li>
+        {{ end }}
+      </ul>
+    {{ end }}
+  {{ end }}
+{{ end }}
+
+{{ define "toc" }}
+  {{ partial "docs/taxonomy" . }}
+{{ end }}

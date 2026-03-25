@@ -8,8 +8,7 @@ tags = [
 ]
 date = "2023-06-08"
 categories = [
-    "Development",
-    "Tutorials",
+    "setup",
 ]
 menu = "main"
 parent = "tutorials"

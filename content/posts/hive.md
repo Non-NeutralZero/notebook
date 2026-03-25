@@ -3,12 +3,11 @@ title = "Hive"
 description = ""
 tags = [
     "sql",
-    "hql",
-    "development",
+    "hive",
 ]
 date = "2018-04-02"
 categories = [
-    "Utils",
+    "reference",
 ]
 menu = "main"
 parent = "tutorials"

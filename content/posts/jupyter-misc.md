@@ -7,7 +7,7 @@ tags = [
 ]
 date = "2023-11-20"
 categories = [
-    "Utils",
+    "setup",
 ]
 menu = "main"
 parent = "tutorials"

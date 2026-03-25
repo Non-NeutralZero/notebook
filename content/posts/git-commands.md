@@ -3,12 +3,10 @@ title = "Git commands I often use"
 description = ""
 tags = [
     "git",
-    "shell",
-    "development",
 ]
 date = "2020-01-20"
 categories = [
-    "Utils",
+    "reference",
 ]
 menu = "main"
 parent = "tutorials"

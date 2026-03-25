@@ -3,11 +3,10 @@ title = "LaTex"
 description = "Misc Setups and Configurations for LaTex"
 tags = [
     "latex",
-    "bibtex",
 ]
 date = "2023-11-29"
 categories = [
-    "Utils",
+    "reference",
 ]
 menu = "main"
 parent = "tutorials"

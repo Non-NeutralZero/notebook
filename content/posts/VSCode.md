@@ -2,13 +2,12 @@
 title = "VS Code Configuration & Set-up"
 description = "VS Code Configuration & Set-up"
 tags = [
+    "vscode",
     "git",
-    "ssh",
-    ]
+]
 date = "2023-11-17"
 categories = [
-    "Utils",
-    "Tutorials",
+    "setup",
 ]
 menu = "main"
 parent = "tutorials"

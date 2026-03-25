@@ -4,13 +4,10 @@ description = "Exploring whether Object-Oriented Programming (OOP) fits well wit
 tags = [
     "databricks",
     "spark",
-    "oop",
-    "software-engineering"
 ]
 date = "2025-09-02"
 categories = [
-    "Development",
-    "Architecture",
+    "concept",
 ]
 menu = "main"
 parent = "notebook"

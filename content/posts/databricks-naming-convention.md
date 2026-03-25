@@ -1,9 +1,9 @@
 +++
 title = "Databricks Naming Conventions"
 description = "Concise guidelines for organizing and naming Databricks resources"
-tags = ["databricks","best-practices","naming","data-engineering","environment"]
+tags = ["databricks"]
 date = "2025-09-02"
-categories = ["Development","Data Platforms"]
+categories = ["reference"]
 menu = "main"
 parent = "tutorials"
 +++

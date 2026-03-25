@@ -3,13 +3,10 @@ title = "How to document your code?"
 description = ""
 tags = [
     "scala",
-    "templates",
-    "development",
 ]
 date = "2019-07-12"
 categories = [
-    "Development",
-    "Tutorials",
+    "reference",
 ]
 menu = "main"
 parent = "tutorials"

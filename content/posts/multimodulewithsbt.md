@@ -3,13 +3,11 @@ title = "Multi-module build based on sbt"
 description = ""
 tags = [
     "scala",
-    "templates",
-    "development",
+    "sbt",
 ]
 date = "2024-03-15"
 categories = [
-    "Development",
-    "Documentation",
+    "reference",
 ]
 menu = "main"
 parent = "tutorials"

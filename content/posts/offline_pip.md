@@ -2,13 +2,11 @@
 title = "Install python packages offline"
 description = "How to Install Python packages offline"
 tags = [
-    "pip",
     "python",
 ]
 date = "2023-06-20"
 categories = [
-    "Utils",
-    "Tutorials",
+    "setup",
 ]
 menu = "main"
 parent = "tutorials"

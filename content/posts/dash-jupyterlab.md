@@ -3,12 +3,11 @@ title = "Run plotly in JupyterLab"
 description = ""
 tags = [
     "jupyter",
-    "python-librairies",
+    "python",
 ]
 date = "2023-10-24"
 categories = [
-    "Utils",
-    "Tutorials",
+    "setup",
 ]
 menu = "main"
 parent = "tutorials"

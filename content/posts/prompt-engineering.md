@@ -3,12 +3,10 @@ title = "Prompt Engineering"
 description = ""
 tags = [
     "llm",
-    "langchain",
 ]
 date = "2023-09-12"
 categories = [
-    "Development",
-    "Documentation",
+    "concept",
 ]
 menu = "main"
 parent = "tutorials"

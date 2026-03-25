@@ -14,4 +14,4 @@ parent = "tutorials"
 
 ## RAG Architecture
 
-{{< figure src="/docs/images/posts/prompt-engineering/rag-architecture.jpg">}}
+{{< figure src="/notebook/images/posts/prompt-engineering/rag-architecture.jpg">}}

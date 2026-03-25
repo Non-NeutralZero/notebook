@@ -42,6 +42,25 @@
 &lt;/h2>
 &lt;ul>
 &lt;li>&lt;a href="https://non-neutralzero.github.io/docs/posts/dash-jupyterlab/">Run plotly in JupyterLab&lt;/a>&lt;/li>
+&lt;/ul></description></item><item><title>Run plotly in JupyterLab</title><link>https://non-neutralzero.github.io/notebook/posts/dash-jupyterlab/</link><pubDate>Tue, 24 Oct 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/dash-jupyterlab/</guid><description>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">1&lt;/span> pip uninstall plotly
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">2&lt;/span> jupyter labextension uninstall @jupyterlab/plotly-extension
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">3&lt;/span> jupyter labextension uninstall jupyterlab-plotly 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">4&lt;/span> jupyter labextension uninstall plotlywidget
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">5&lt;/span> jupyter labextension update --all
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">6&lt;/span> pip install plotly&lt;span style="color:#81a1c1">==&lt;/span>5.17.0
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">7&lt;/span> pip install &lt;span style="color:#a3be8c">&amp;#34;jupyterlab&amp;gt;=3&amp;#34;&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;ipywidgets&amp;gt;=7.6&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">8&lt;/span> pip install jupyter-dash
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#b48ead">9&lt;/span> jupyter labextension list
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="useful-links">
+ Useful Links
+ &lt;a class="anchor" href="#useful-links">#&lt;/a>
+&lt;/h2>
+&lt;ul>
+&lt;li>What is Right extension for Plotly in JupyterLab?
+&lt;a href="https://stackoverflow.com/questions/62604893/what-is-right-extension-for-plotly-in-jupyterlab">https://stackoverflow.com/questions/62604893/what-is-right-extension-for-plotly-in-jupyterlab&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://jupyter-docker-stacks.readthedocs.io/en/latest/">https://jupyter-docker-stacks.readthedocs.io/en/latest/&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/jupyter/docker-stacks">https://github.com/jupyter/docker-stacks&lt;/a>&lt;/li>
+&lt;li>&lt;a href="https://github.com/plotly/plotly.py">https://github.com/plotly/plotly.py&lt;/a>&lt;/li>
 &lt;/ul></description></item><item><title>Install python packages offline</title><link>https://non-neutralzero.github.io/notebook/posts/offline_pip/</link><pubDate>Tue, 20 Jun 2023 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/offline_pip/</guid><description>&lt;p>1- Download packages locally using a requirements file or download a single package&lt;/p>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>pip download -r requirements.txt
 &lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-shell" data-lang="shell">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">## Example - single package&lt;/span>

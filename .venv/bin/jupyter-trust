@@ -1,8 +1,0 @@
-#!/Users/leonardo/Documents/0_NNZEcosystem/3_Production_Factory/0_Prod_GitHub_NNZ/notebook/.venv/bin/python3
-# -*- coding: utf-8 -*-
-import re
-import sys
-from nbformat.sign import TrustNotebookApp
-if __name__ == '__main__':
-    sys.argv[0] = re.sub(r'(-script\.pyw|\.exe)?$', '', sys.argv[0])
-    sys.exit(TrustNotebookApp.launch_instance())

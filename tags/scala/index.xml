@@ -61,11 +61,7 @@
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">val&lt;/span> sparkSQL &lt;span style="color:#81a1c1;font-weight:bold">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;org.apache.spark&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">%%&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;spark-sql&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">%&lt;/span> sparkVersion
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">val&lt;/span> sparkHive &lt;span style="color:#81a1c1;font-weight:bold">=&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;org.apache.spark&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">%%&lt;/span> &lt;span style="color:#a3be8c">&amp;#34;spark-hive&amp;#34;&lt;/span> &lt;span style="color:#81a1c1">%&lt;/span> sparkVersion
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">lazy&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">val&lt;/span> sparkDependencies &lt;span style="color:#81a1c1;font-weight:bold">=&lt;/span> &lt;span style="color:#8fbcbb">Seq&lt;/span>&lt;span style="color:#81a1c1">(&lt;/span>sparkCore&lt;span style="color:#81a1c1">,&lt;/span> sparkSQL&lt;span style="color:#81a1c1">,&lt;/span> sparkHive&lt;span style="color:#81a1c1">)&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://gist.github.com/Non-NeutralZero/d5be154ee38962176bcc0bf49182c691">https://gist.github.com/Non-NeutralZero/d5be154ee38962176bcc0bf49182c691&lt;/a>&lt;/p></description></item><item><title>How to document your code?</title><link>https://non-neutralzero.github.io/notebook/posts/code-documentation-scala/</link><pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/code-documentation-scala/</guid><description>&lt;h2 id="comment-documenter-">
- Comment documenter ?
- &lt;a class="anchor" href="#comment-documenter-">#&lt;/a>
-&lt;/h2>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">lazy&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">val&lt;/span> sparkDependencies &lt;span style="color:#81a1c1;font-weight:bold">=&lt;/span> &lt;span style="color:#8fbcbb">Seq&lt;/span>&lt;span style="color:#81a1c1">(&lt;/span>sparkCore&lt;span style="color:#81a1c1">,&lt;/span> sparkSQL&lt;span style="color:#81a1c1">,&lt;/span> sparkHive&lt;span style="color:#81a1c1">)&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>&lt;a href="https://gist.github.com/Non-NeutralZero/d5be154ee38962176bcc0bf49182c691">https://gist.github.com/Non-NeutralZero/d5be154ee38962176bcc0bf49182c691&lt;/a>&lt;/p></description></item><item><title>How to document your code?</title><link>https://non-neutralzero.github.io/notebook/posts/code-documentation-scala/</link><pubDate>Fri, 12 Jul 2019 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/posts/code-documentation-scala/</guid><description>&lt;h2 id="comment-documenter-">Comment documenter ?&lt;a class="anchor" href="#comment-documenter-">#&lt;/a>&lt;/h2>
 &lt;p>Les mêmes principes et critères d’un bon code devraient s’appliquer à la documentation:&lt;/p>
 &lt;ul>
 &lt;li>Conventionnelle&lt;/li>
@@ -83,22 +79,14 @@ utilisation, indications pour le testing)&lt;/li>
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">*/&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>int get_temperature&lt;span style="color:#81a1c1">(&lt;/span>void&lt;span style="color:#81a1c1">)&lt;/span> &lt;span style="color:#81a1c1">{&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1;font-weight:bold">return&lt;/span> temperature&lt;span style="color:#81a1c1">;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;ul>
 &lt;li>Non-bruitée&lt;/li>
 &lt;/ul>
 &lt;div class="highlight">&lt;pre tabindex="0" style="color:#d8dee9;background-color:#2e3440;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-scala" data-lang="scala">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">/**
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">* Always returns true.
 &lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#616e87;font-style:italic">*/&lt;/span>
 &lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>public boolean isAvailable&lt;span style="color:#81a1c1">()&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">{&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">return&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">false&lt;/span>&lt;span style="color:#81a1c1">;}&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="bonnes-pratiques">
- Bonnes pratiques
- &lt;a class="anchor" href="#bonnes-pratiques">#&lt;/a>
-&lt;/h2>
-&lt;h3 id="introduire-son-code">
- Introduire son code.
- &lt;a class="anchor" href="#introduire-son-code">#&lt;/a>
-&lt;/h3>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#81a1c1">{&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">return&lt;/span> &lt;span style="color:#81a1c1;font-weight:bold">false&lt;/span>&lt;span style="color:#81a1c1">;}&lt;/span>&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h2 id="bonnes-pratiques">Bonnes pratiques&lt;a class="anchor" href="#bonnes-pratiques">#&lt;/a>&lt;/h2>
+&lt;h3 id="introduire-son-code">Introduire son code.&lt;a class="anchor" href="#introduire-son-code">#&lt;/a>&lt;/h3>
 &lt;p>Décrire le contexte ou le background du code est une bonne pratique qui permettra aux lecteurs de se positionner par
 rapport aux conditions dans lesquelles le code a été généré et à ses objectifs.&lt;/p></description></item></channel></rss>

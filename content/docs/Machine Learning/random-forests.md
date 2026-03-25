@@ -16,3 +16,7 @@ Random forests are built from decision trees
 
 
 For more, see Chapter 15 in https://web.stanford.edu/~hastie/Papers/ESLII.pdf
+
+> [!NOTE]
+> **Experimentation(s) output**
+> [View notebook output](/notebook/outputs/random-forests-outputs/random-forests.html)

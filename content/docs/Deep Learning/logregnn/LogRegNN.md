@@ -23,3 +23,7 @@ i.e.
 ## Implementation
 
 [github/Non-NeutralZero - CatVsNonCat.ipynb](https://github.com/Non-NeutralZero/docs/blob/main/content/docs/Deep%20Learning/logregnn/CatVsNonCat.ipynb)
+
+> [!NOTE]
+> **Experimentation(s) output**
+> [View notebook output](/notebook/outputs/CatVsNonCat-outputs/CatVsNonCat.html)

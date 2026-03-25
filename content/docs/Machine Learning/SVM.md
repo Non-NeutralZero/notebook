@@ -8,3 +8,7 @@
 *   S: Hinge Loss!
 *   P: ***Overfitting, this type of classifier would be very sensitive to outliers for example***
 *   S: Explorative data analysis, outliers analysis or allow misclassification (soft margin). o
+
+> [!NOTE]
+> **Experimentation(s) output**
+> [View notebook output](/notebook/outputs/svm-outputs/svm.html)

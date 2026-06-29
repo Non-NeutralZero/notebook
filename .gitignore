@@ -3,6 +3,7 @@
 .venv/
 /.pnp
 .pnp.js
+.claude
 
 # testing
 /coverage
@@ -73,6 +74,7 @@ Icon\r
 
 # vscode workspace settings
 .vscode
+.claude
 .dropbox
 ThisBuild
 ThisBuild/

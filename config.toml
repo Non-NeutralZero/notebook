@@ -6,7 +6,11 @@ theme = 'hugo-book'
 # Syntax highlighting
 pygmentsCodeFences = true 
 pygmentsUseClasses = false  
-pygmentsStyle = "nord"  
+pygmentsStyle = "nord"
+
+# Allow raw HTML from theme shortcodes (details, columns, tabs, etc.)
+[markup.goldmark.renderer]
+  unsafe = true
 
 [menu]
 # [[menu.before]]

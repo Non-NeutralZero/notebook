@@ -17,7 +17,28 @@
     --hint-color-info: #6bf;
     --hint-color-warning: #fd6;
     --hint-color-danger: #f66;
+
+    // Accent colors for markdown alerts ([!NOTE], [!TIP], ...)
+    @include accent("default", #64748b);
+    @include accent("note", #4486dd);
+    @include accent("tip", #3bad3b);
+    @include accent("important", #8144dd);
+    @include accent("warning", #f59e42);
+    @include accent("caution", #d84747);
+    @include accent("info", #4486dd);
+    @include accent("success", #3bad3b);
+    @include accent("danger", #d84747);
   }
   
+// Collapsible blocks ({{% details %}}), e.g. the appendices
+.markdown details {
+  border-color: var(--color-accent-default);
+  background-color: var(--color-accent-default-tint);
+
+  summary {
+    font-weight: bold;
+  }
+}
+
 // @import "plugins/numbered";
 // @import "plugins/scrollbars";

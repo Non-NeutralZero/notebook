@@ -386,32 +386,7 @@ seule ne peut pallier aux pertes de la clientèle. (voir illustration)&lt;/p>
 &lt;/blockquote>
 
 &lt;h3 id="pivot-transformations-and-data-federation">Pivot transformations and Data federation&lt;a class="anchor" href="#pivot-transformations-and-data-federation">#&lt;/a>&lt;/h3>
-&lt;p>We select specific columns in order to create transitional tables with the desired pivot columns.&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/data-science/outlier-detection/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/data-science/outlier-detection/</guid><description>&lt;h2 id="types-of-outliers">Types of outliers&lt;a class="anchor" href="#types-of-outliers">#&lt;/a>&lt;/h2>
-&lt;h3 id="with-regards-to-the-distribution">With regards to the distribution&lt;a class="anchor" href="#with-regards-to-the-distribution">#&lt;/a>&lt;/h3>
-&lt;ul>
-&lt;li>Univariate: can be found when looking at a distribution of values in a single feature space.&lt;/li>
-&lt;li>Multivariate: can be found in a n-dimensional space (of n-features).&lt;/li>
-&lt;/ul>
-&lt;h3 id="with-regards-to-the-environment">With regards to the environment&lt;a class="anchor" href="#with-regards-to-the-environment">#&lt;/a>&lt;/h3>
-&lt;ul>
-&lt;li>Point outliers: single data points that lay far from the rest of the distribution.&lt;/li>
-&lt;li>Contextual outliers: can be noise in data, such as punctuation symbols when realizing
-text analysis or background noise signal when doing speech recognition.&lt;/li>
-&lt;li>Collective outliers: Collective outliers can be subsets of novelties in data such as a signal
-that may indicate the discovery of new phenomena.&lt;/li>
-&lt;/ul>
-&lt;h2 id="most-common-causes-of-outliers-on-a-data-set">Most common causes of outliers on a data set&lt;a class="anchor" href="#most-common-causes-of-outliers-on-a-data-set">#&lt;/a>&lt;/h2>
-&lt;ul>
-&lt;li>Data entry errors (human errors)&lt;/li>
-&lt;li>Measurement errors (instrument errors)&lt;/li>
-&lt;li>Experimental errors (data extraction or experiment planning/executing errors)&lt;/li>
-&lt;li>Intentional (dummy outliers made to test detection methods)&lt;/li>
-&lt;li>Data processing errors (data manipulation or data set unintended mutations)&lt;/li>
-&lt;li>Sampling errors (extracting or mixing data from wrong or various sources)&lt;/li>
-&lt;li>Natural (not an error, novelties in data)&lt;/li>
-&lt;/ul>
-&lt;blockquote class="book-hint info">
- &lt;p>&lt;strong>Hint&lt;/strong>&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/data-science/sna/sna/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/data-science/sna/sna/</guid><description>&lt;figure>&lt;img src="https://non-neutralzero.github.io/notebook/images/docs/datascience/sna/icons8-0-100.png">
+&lt;p>We select specific columns in order to create transitional tables with the desired pivot columns.&lt;/p></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/data-science/sna/sna/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/data-science/sna/sna/</guid><description>&lt;figure>&lt;img src="https://non-neutralzero.github.io/notebook/images/docs/datascience/sna/icons8-0-100.png">
 &lt;/figure></description></item><item><title/><link>https://non-neutralzero.github.io/notebook/docs/deep-learning/logregnn/logregnn/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://non-neutralzero.github.io/notebook/docs/deep-learning/logregnn/logregnn/</guid><description>&lt;h1 id="logistic-regression-as-a-neural-network">Logistic Regression as a Neural Network&lt;a class="anchor" href="#logistic-regression-as-a-neural-network">#&lt;/a>&lt;/h1>
 &lt;h2 id="architecture">Architecture&lt;a class="anchor" href="#architecture">#&lt;/a>&lt;/h2>
 &lt;p>𝐺𝑖𝑣𝑒𝑛 𝑥 , 𝑦̂ = 𝑃(𝑦 = 1|𝑥), where 0 ≤ 𝑦̂ ≤ 1&lt;/p>
